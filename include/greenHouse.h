@@ -4,8 +4,6 @@ class greenhouse
 {
 public:
     int plantSpaces = 0;
-    
-    void pumpWater(float WaterAmountPumping);
     void adjustLight(float differenceInLightamount);
 
 private:
