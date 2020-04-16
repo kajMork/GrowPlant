@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: greenhouse_control
-# Configurations: Release
+# Configurations: Debug
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Release
+CONFIGURATION = Debug
 # =============================================================================
 # Include auxiliary files.
 
@@ -41,26 +41,26 @@ include rules.ninja
 #############################################
 # Order-only phony target for tomato_example
 
-build cmake_object_order_depends_target_tomato_example_Release: phony || CMakeFiles\tomato_example.dir
+build cmake_object_order_depends_target_tomato_example_Debug: phony || CMakeFiles\tomato_example.dir
 
-build CMakeFiles\tomato_example.dir\src\tomato_example.cpp.obj: CXX_COMPILER__tomato_example_Release ..\src\tomato_example.cpp || cmake_object_order_depends_target_tomato_example_Release
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD
+build CMakeFiles\tomato_example.dir\src\tomato_example.cpp.obj: CXX_COMPILER__tomato_example_Debug ..\src\tomato_example.cpp || cmake_object_order_depends_target_tomato_example_Debug
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   INCLUDES = -I..\include
   OBJECT_DIR = CMakeFiles\tomato_example.dir
   OBJECT_FILE_DIR = CMakeFiles\tomato_example.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\tomato_example.dir\
   TARGET_PDB = tomato_example.pdb
 
-build CMakeFiles\tomato_example.dir\src\tomato_plant.cpp.obj: CXX_COMPILER__tomato_example_Release ..\src\tomato_plant.cpp || cmake_object_order_depends_target_tomato_example_Release
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD
+build CMakeFiles\tomato_example.dir\src\tomato_plant.cpp.obj: CXX_COMPILER__tomato_example_Debug ..\src\tomato_plant.cpp || cmake_object_order_depends_target_tomato_example_Debug
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   INCLUDES = -I..\include
   OBJECT_DIR = CMakeFiles\tomato_example.dir
   OBJECT_FILE_DIR = CMakeFiles\tomato_example.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\tomato_example.dir\
   TARGET_PDB = tomato_example.pdb
 
-build CMakeFiles\tomato_example.dir\src\cucumber_plant.cpp.obj: CXX_COMPILER__tomato_example_Release ..\src\cucumber_plant.cpp || cmake_object_order_depends_target_tomato_example_Release
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD
+build CMakeFiles\tomato_example.dir\src\cucumber_plant.cpp.obj: CXX_COMPILER__tomato_example_Debug ..\src\cucumber_plant.cpp || cmake_object_order_depends_target_tomato_example_Debug
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   INCLUDES = -I..\include
   OBJECT_DIR = CMakeFiles\tomato_example.dir
   OBJECT_FILE_DIR = CMakeFiles\tomato_example.dir\src
@@ -75,9 +75,9 @@ build CMakeFiles\tomato_example.dir\src\cucumber_plant.cpp.obj: CXX_COMPILER__to
 #############################################
 # Link the executable tomato_example.exe
 
-build tomato_example.exe: CXX_EXECUTABLE_LINKER__tomato_example_Release CMakeFiles\tomato_example.dir\src\tomato_example.cpp.obj CMakeFiles\tomato_example.dir\src\tomato_plant.cpp.obj CMakeFiles\tomato_example.dir\src\cucumber_plant.cpp.obj
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD
-  LINK_FLAGS = /machine:x64 /INCREMENTAL:NO /subsystem:console
+build tomato_example.exe: CXX_EXECUTABLE_LINKER__tomato_example_Debug CMakeFiles\tomato_example.dir\src\tomato_example.cpp.obj CMakeFiles\tomato_example.dir\src\tomato_plant.cpp.obj CMakeFiles\tomato_example.dir\src\cucumber_plant.cpp.obj
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = CMakeFiles\tomato_example.dir
   POST_BUILD = cd .
@@ -92,7 +92,7 @@ build tomato_example.exe: CXX_EXECUTABLE_LINKER__tomato_example_Release CMakeFil
 # Utility command for edit_cache
 
 build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Kaj\OneDrive\Robotics\2.Semester\Programmering\SSP_GREENHOUSE\build && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\Kaj\OneDrive\Robotics\2.Semester\Programmering\SSP_GREENHOUSE -BC:\Users\Kaj\OneDrive\Robotics\2.Semester\Programmering\SSP_GREENHOUSE\build"
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build" && "C:\Program Files\CMake\bin\cmake-gui.exe" -S"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant" -B"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build""
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -104,7 +104,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\Kaj\OneDrive\Robotics\2.Semester\Programmering\SSP_GREENHOUSE\build && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\Kaj\OneDrive\Robotics\2.Semester\Programmering\SSP_GREENHOUSE -BC:\Users\Kaj\OneDrive\Robotics\2.Semester\Programmering\SSP_GREENHOUSE\build"
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build" && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant" -B"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -122,7 +122,7 @@ build tomato_example: phony tomato_example.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Kaj/OneDrive/Robotics/2.Semester/Programmering/SSP_GREENHOUSE/build
+# Folder: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build
 
 build all: phony tomato_example.exe
 
@@ -133,14 +133,14 @@ build all: phony tomato_example.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.17.0-rc3\CMakeCCompiler.cmake CMakeFiles\3.17.0-rc3\CMakeCXXCompiler.cmake CMakeFiles\3.17.0-rc3\CMakeRCCompiler.cmake CMakeFiles\3.17.0-rc3\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.17.0\CMakeCCompiler.cmake CMakeFiles\3.17.0\CMakeCXXCompiler.cmake CMakeFiles\3.17.0\CMakeRCCompiler.cmake CMakeFiles\3.17.0\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\CMakeLists.txt C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.17.0-rc3\CMakeCCompiler.cmake CMakeFiles\3.17.0-rc3\CMakeCXXCompiler.cmake CMakeFiles\3.17.0-rc3\CMakeRCCompiler.cmake CMakeFiles\3.17.0-rc3\CMakeSystem.cmake: phony
+build ..\CMakeLists.txt C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake C$:\Program$ Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.17.0\CMakeCCompiler.cmake CMakeFiles\3.17.0\CMakeCXXCompiler.cmake CMakeFiles\3.17.0\CMakeRCCompiler.cmake CMakeFiles\3.17.0\CMakeSystem.cmake: phony
 
 
 #############################################
