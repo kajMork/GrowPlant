@@ -1,10 +1,14 @@
-#include"../include/tomato_plant.h"
-#include"../include/cucumber_plant.h"
-#include"waterTank.h"
-#include "greenHouse.h"
-#include<vector>
+#include "../include/tomato_plant.h"
+#include "../include/cucumber_plant.h"
+#include "../include/water_tank.h"
+#include "../include/green_house.h"
+#include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 void simulateOneDay(PlantBase &a_plant)
 {
@@ -19,7 +23,7 @@ void fillUpWater(waterTank &a_watertank)
     }
 }
 
-void pumpingWater(greenhouse &a_greenhouse, waterTank &a_watertank)
+void pumpingWater(greenHouse &a_greenhouse, waterTank &a_watertank)
 {
     if (a_watertank.getIsItEmpty()!=true)
     {
@@ -27,18 +31,37 @@ void pumpingWater(greenhouse &a_greenhouse, waterTank &a_watertank)
     }
 }
 
+
+
 int main(int argc, char const *argv[])
 {
-    TomatoPlant my_plant;
+    TomatoPlant my_tomato_plant;
     CucumberPlant my_cucumber_plant;
-    greenhouse B267a_greenhouse;
+    greenHouse my_greenHouse;
     waterTank my_watertank;
 
-    simulateOneDay(my_plant);
-    simulateOneDay(my_cucumber_plant);
-    fillUpWater(my_watertank);
-    pumpingWater(B267a_greenhouse, my_watertank);
-    /*my_plant.grow(10);
+    bool waitFillUp = false;
+    bool end = false;
+    
+
+    while (end==false)
+    {
+        simulateOneDay(my_tomato_plant);
+        simulateOneDay(my_cucumber_plant);
+        cout << "Do you want to wait with filling up water? Type 0 for yes or 1 for no" << endl;
+        cin >> waitFillUp;
+        if (waitFillUp!=false)
+        {
+            fillUpWater(my_watertank);
+        }
+
+        pumpingWater(my_greenHouse, my_watertank);
+1
+        cout << "Height of tomato plant: " << my_tomato_plant.getHeight() << endl;
+        cout << "Height of cucumber plant: " << my_cucumber_plant.getHeight() << endl;
+        cout << "Watertank level: " << my_watertank.getWaterAmount() << endl;
+    }
+    /*my_plant.grow(10);'
     
     std::vector<TomatoPlant> my_greenhouse;
     my_greenhouse.push_back(my_plant);

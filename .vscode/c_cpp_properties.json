@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\include"
             ],
             "defines": [
                 "_DEBUG",
