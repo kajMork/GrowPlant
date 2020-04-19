@@ -92,7 +92,7 @@ build tomato_example.exe: CXX_EXECUTABLE_LINKER__tomato_example_Debug CMakeFiles
 # Utility command for edit_cache
 
 build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build" && "C:\Program Files\CMake\bin\cmake-gui.exe" -S"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant" -B"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build""
+  COMMAND = cmd.exe /C "cd /D C:\Users\MOCst\.vscode\GrowPlant\build && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\MOCst\.vscode\GrowPlant -BC:\Users\MOCst\.vscode\GrowPlant\build"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -104,7 +104,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build" && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant" -B"C:\Users\Kaspe\Aalborg Universitet\Kasper personlig\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\GrowPlant\build""
+  COMMAND = cmd.exe /C "cd /D C:\Users\MOCst\.vscode\GrowPlant\build && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\MOCst\.vscode\GrowPlant -BC:\Users\MOCst\.vscode\GrowPlant\build"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -122,7 +122,7 @@ build tomato_example: phony tomato_example.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build
+# Folder: C:/Users/MOCst/.vscode/GrowPlant/build
 
 build all: phony tomato_example.exe
 

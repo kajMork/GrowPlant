@@ -1,19 +1,19 @@
 [
 {
-  "directory": "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build",
-  "command": "C:\\PROGRA~2\\MICROS~3\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1425~1.286\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP  -I..\\include  /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd   /FoCMakeFiles\\tomato_example.dir\\src\\tomato_example.cpp.obj /FdTARGET_COMPILE_PDB /FS -c \"C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\src\\tomato_example.cpp\"",
-  "file": "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/src/tomato_example.cpp"
+  "directory": "C:/Users/MOCst/.vscode/GrowPlant/build",
+  "command": "C:\\PROGRA~2\\MICROS~2\\2019\\BUILDT~1\\VC\\Tools\\MSVC\\1425~1.286\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP  -I..\\include  /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd   /FoCMakeFiles\\tomato_example.dir\\src\\tomato_example.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\MOCst\\.vscode\\GrowPlant\\src\\tomato_example.cpp",
+  "file": "C:/Users/MOCst/.vscode/GrowPlant/src/tomato_example.cpp"
 },
 
 {
-  "directory": "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build",
-  "command": "C:\\PROGRA~2\\MICROS~3\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1425~1.286\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP  -I..\\include  /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd   /FoCMakeFiles\\tomato_example.dir\\src\\tomato_plant.cpp.obj /FdTARGET_COMPILE_PDB /FS -c \"C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\src\\tomato_plant.cpp\"",
-  "file": "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/src/tomato_plant.cpp"
+  "directory": "C:/Users/MOCst/.vscode/GrowPlant/build",
+  "command": "C:\\PROGRA~2\\MICROS~2\\2019\\BUILDT~1\\VC\\Tools\\MSVC\\1425~1.286\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP  -I..\\include  /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd   /FoCMakeFiles\\tomato_example.dir\\src\\tomato_plant.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\MOCst\\.vscode\\GrowPlant\\src\\tomato_plant.cpp",
+  "file": "C:/Users/MOCst/.vscode/GrowPlant/src/tomato_plant.cpp"
 },
 
 {
-  "directory": "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build",
-  "command": "C:\\PROGRA~2\\MICROS~3\\2019\\COMMUN~1\\VC\\Tools\\MSVC\\1425~1.286\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP  -I..\\include  /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd   /FoCMakeFiles\\tomato_example.dir\\src\\cucumber_plant.cpp.obj /FdTARGET_COMPILE_PDB /FS -c \"C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\src\\cucumber_plant.cpp\"",
-  "file": "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/src/cucumber_plant.cpp"
+  "directory": "C:/Users/MOCst/.vscode/GrowPlant/build",
+  "command": "C:\\PROGRA~2\\MICROS~2\\2019\\BUILDT~1\\VC\\Tools\\MSVC\\1425~1.286\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP  -I..\\include  /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd   /FoCMakeFiles\\tomato_example.dir\\src\\cucumber_plant.cpp.obj /FdTARGET_COMPILE_PDB /FS -c C:\\Users\\MOCst\\.vscode\\GrowPlant\\src\\cucumber_plant.cpp",
+  "file": "C:/Users/MOCst/.vscode/GrowPlant/src/cucumber_plant.cpp"
 }
 ]

@@ -1,6 +1,6 @@
 #pragma once
 
-class greenhouse
+class greenHouse
 {
 public:
     int plantSpaces = 0;
