@@ -10,7 +10,7 @@ public:
     };
     void emptying()
     {
-        waterAmount=waterAmount-10;
+        waterAmount=waterAmount-100;
         if (waterAmount==0)
         {
             empty = true;

@@ -31,8 +31,6 @@ void pumpingWater(greenHouse &a_greenhouse, waterTank &a_watertank)
     }
 }
 
-
-
 int main(int argc, char const *argv[])
 {
     TomatoPlant my_tomato_plant;
@@ -48,15 +46,23 @@ int main(int argc, char const *argv[])
     {
         simulateOneDay(my_tomato_plant);
         simulateOneDay(my_cucumber_plant);
-        cout << "Do you want to wait with filling up water? Type 0 for yes or 1 for no" << endl;
+        cout << "Do you want to fill up water? Type 0 for yes or 1 for no" << endl;
         cin >> waitFillUp;
-        if (waitFillUp!=false)
+        if (waitFillUp!=true)
         {
             fillUpWater(my_watertank);
         }
+        
+        if (my_watertank.getWaterAmount()==0)
+        {
+            cout << "WARNING: the water tank is empty" << endl;
+        }
+        else if (my_watertank.getWaterAmount()<=100)
+        {
+            cout << "WARNING: the water tank level is low" << endl;
+        }
 
         pumpingWater(my_greenHouse, my_watertank);
-1
         cout << "Height of tomato plant: " << my_tomato_plant.getHeight() << endl;
         cout << "Height of cucumber plant: " << my_cucumber_plant.getHeight() << endl;
         cout << "Watertank level: " << my_watertank.getWaterAmount() << endl;
