@@ -71,9 +71,9 @@ int main(int argc, char const *argv[])
 
     // UI SEGMENTS //
 
-        // Plant sim controller
+        // Plant simulator controller
         ImGui::Begin("Controller");
-            // Being able to see and change how many days the user want to wait
+            // Being able to see and change how many days the user wants to wait
             std::string strDays = "Days to wait: " + std::to_string(daysToWait);
             const char *cd = strDays.c_str();
             ImGui::TextUnformatted(cd);
