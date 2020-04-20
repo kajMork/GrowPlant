@@ -1,72 +1,37 @@
-#include <iostream>
-#include <thread>
-#include <SFML/Graphics.hpp>
-#include <imgui.h>
-#include <imgui-SFML.h>
-#include <tomato_plant.h>
+#include"../include/tomato_plant.h"
+#include"../include/cucumber_plant.h"
+#include"waterTank.h"
+#include "greenHouse.h"
+#include<vector>
+
 
 void simulateOneDay(PlantBase &a_plant){
     a_plant.grow(1);
 }
+int main(int argc, char const *argv[])
+{
+    TomatoPlant my_plant;
+    CucumberPlant my_cucumber_plant;
 
-int main(int argc, char const *argv[]){
-    // using namespace std::chrono_literals;
-    //TomatoPlant my_tomato_plant;
-    
-   // for (size_t i = 0; i < 5; i++)
-   // {
-      //  simulateOneDay(my_tomato_plant);
+    simulateOneDay(my_plant);
+    simulateOneDay(my_cucumber_plant);
+    /*my_plant.grow(10);
 
-    //    std::cout << "Plant height: " << my_tomato_plant.getHeight() << '\n';
+    std::vector<TomatoPlant> my_greenhouse;
+    my_greenhouse.push_back(my_plant);
+    my_greenhouse.push_back(my_plant);
+    my_greenhouse.push_back(my_plant);
 
-   //     std::this_thread::sleep_for(1s);
-   // }
+    TomatoPlant new_tomatoplant = my_greenhouse[1];
 
-    float stalk_length = 25.;
-    sf::RectangleShape tomato_stalk {sf::Vector2f{5.0, stalk_length}};
-    tomato_stalk.setFillColor(sf::Color{0, 255, 0});
-
-   // create the window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Simulation");
-    window.setFramerateLimit(60);
-    ImGui::SFML::Init(window);
-
-    sf::Clock deltaClock;
-    // run the program as long as the window is open
-    while (window.isOpen())
+    for (int i = 0; i < my_greenhouse.size(); i++)
     {
-        // check all the window's events that were triggered since the last iteration of the loop
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            ImGui::SFML::ProcessEvent(event);
-            // "close requested" event: we close the window
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        ImGui::SFML::Update(window, deltaClock.restart());
-
-        ImGui::Begin("Hello, world!");
-        if (ImGui::SliderFloat("Length", &stalk_length, 0., 100.))
-        {
-           tomato_stalk.setSize(sf::Vector2f{5.0, stalk_length}); 
-        }
-        ImGui::End();
-
-        // clear the window with black color
-        window.clear(sf::Color::Black);
-
-        // draw everything here...
-        window.draw(tomato_stalk);
-
-        ImGui::SFML::Render(window);
-
-        // end the current frame
-        window.display();
+        my_greenhouse[i].grow(1);
     }
-
-
-
+    
+    for(TomatoPlant &p : my_greenhouse)
+    {
+        p.grow(1);
+    }*/
     return 0;
 }

@@ -5,19 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "simulator",
-            "type": "cppdbg",
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/simulator",
+            "program": "tomato_example.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/build",
             "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "env": {
-                "Path": "${env:Path};${workspaceFolder}/build/libs/SFML/lib;${workspaceFolder}/build/libs/imgui-sfml"
-            }
+            "externalConsole": false
         }
     ]
 }

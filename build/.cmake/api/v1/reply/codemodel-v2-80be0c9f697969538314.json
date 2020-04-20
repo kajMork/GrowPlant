@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.17"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "greenhouse_control",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "tomato_example::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tomato_example-Debug-086cf468e34dbe75c888.json",
+					"name" : "tomato_example",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build",
+		"source" : "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

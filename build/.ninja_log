@@ -1,0 +1,9 @@
+# ninja log v5
+5	69	608746067	CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.obj	40b244eae0457e13
+8	71	608746067	CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.obj	79fda60c991db290
+1	220	608746067	CMakeFiles/tomato_example.dir/src/tomato_example.cpp.obj	b0ac31575c0a915a
+220	517	608746067	tomato_example.exe	1a7237e0f52a415a
+0	339	608748308	CMakeFiles/tomato_example.dir/src/tomato_example.cpp.obj	b0ac31575c0a915a
+339	493	608748308	tomato_example.exe	1a7237e0f52a415a
+0	329	608748415	CMakeFiles/tomato_example.dir/src/tomato_example.cpp.obj	b0ac31575c0a915a
+329	477	608748415	tomato_example.exe	1a7237e0f52a415a
