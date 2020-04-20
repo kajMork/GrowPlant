@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant
+# Install script for directory: C:/Users/Kaj/Documents/GitHub/GrowPlant
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,6 +32,16 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Kaj/Documents/GitHub/GrowPlant/build/lib/SFML/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Kaj/Documents/GitHub/GrowPlant/build/lib/imgui-sfml/cmake_install.cmake")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()
@@ -40,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Kaj/Documents/GitHub/GrowPlant/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

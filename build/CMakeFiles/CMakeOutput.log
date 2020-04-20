@@ -1,6 +1,6 @@
 The system is: Windows - 10.0.18362 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.25.28610/bin/Hostx64/x64/cl.exe 
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.25.28610/bin/Hostx64/x64/cl.exe 
 Build flags: 
 Id flags:  
 
@@ -21,10 +21,10 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
 
-The C compiler identification is MSVC, found in "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/3.17.0/CompilerIdC/CMakeCCompilerId.exe"
+The C compiler identification is MSVC, found in "C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/3.17.0-rc3/CompilerIdC/CMakeCCompilerId.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.25.28610/bin/Hostx64/x64/cl.exe 
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.25.28610/bin/Hostx64/x64/cl.exe 
 Build flags: 
 Id flags:  
 
@@ -45,37 +45,69 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
 
-The CXX compiler identification is MSVC, found in "C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/3.17.0/CompilerIdCXX/CMakeCXXCompilerId.exe"
+The CXX compiler identification is MSVC, found in "C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/3.17.0-rc3/CompilerIdCXX/CMakeCXXCompilerId.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_3ec81 && [1/2] Building C object CMakeFiles\cmTC_3ec81.dir\testCCompiler.c.obj
-[2/2] Linking C executable cmTC_3ec81.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_0fd41 && [1/2] Building C object CMakeFiles\cmTC_0fd41.dir\testCCompiler.c.obj
+[2/2] Linking C executable cmTC_0fd41.exe
 
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_a736a && [1/2] Building C object CMakeFiles\cmTC_a736a.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_a736a.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_a88a7 && [1/2] Building C object CMakeFiles\cmTC_a88a7.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_a88a7.exe
 
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_1cfdd && [1/2] Building CXX object CMakeFiles\cmTC_1cfdd.dir\testCXXCompiler.cxx.obj
-[2/2] Linking CXX executable cmTC_1cfdd.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_2c2dc && [1/2] Building CXX object CMakeFiles\cmTC_2c2dc.dir\testCXXCompiler.cxx.obj
+[2/2] Linking CXX executable cmTC_2c2dc.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_e8334 && [1/2] Building CXX object CMakeFiles\cmTC_e8334.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_e8334.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_f2286 && [1/2] Building CXX object CMakeFiles\cmTC_f2286.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_f2286.exe
+
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_cad6b && [1/2] Building C object CMakeFiles\cmTC_cad6b.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_cad6b.exe
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_d71ea && [1/2] Building C object CMakeFiles\cmTC_d71ea.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_d71ea.exe
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_173cd && [1/2] Building C object CMakeFiles\cmTC_173cd.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_173cd.exe
+
+
+
+Determining size of void* passed with the following output:
+Change Dir: C:/Users/Kaj/Documents/GitHub/GrowPlant/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/PROGRA~2/MICROS~1/2019/BUILDT~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_b98c5 && [1/2] Building C object CMakeFiles\cmTC_b98c5.dir\SIZEOF_VOID_PTR.c.obj
+[2/2] Linking C executable cmTC_b98c5.exe
 
 
 
