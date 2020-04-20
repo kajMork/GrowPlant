@@ -50,64 +50,64 @@ The CXX compiler identification is MSVC, found in "C:/Users/Kaspe/Aalborg Univer
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_c8776 && [1/2] Building C object CMakeFiles\cmTC_c8776.dir\testCCompiler.c.obj
-[2/2] Linking C executable cmTC_c8776.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_029ed && [1/2] Building C object CMakeFiles\cmTC_029ed.dir\testCCompiler.c.obj
+[2/2] Linking C executable cmTC_029ed.exe
 
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_565f9 && [1/2] Building C object CMakeFiles\cmTC_565f9.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_565f9.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_e47a9 && [1/2] Building C object CMakeFiles\cmTC_e47a9.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_e47a9.exe
 
 
 
 Determining if the CXX compiler works passed with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_37451 && [1/2] Building CXX object CMakeFiles\cmTC_37451.dir\testCXXCompiler.cxx.obj
-[2/2] Linking CXX executable cmTC_37451.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_456a9 && [1/2] Building CXX object CMakeFiles\cmTC_456a9.dir\testCXXCompiler.cxx.obj
+[2/2] Linking CXX executable cmTC_456a9.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_35533 && [1/2] Building CXX object CMakeFiles\cmTC_35533.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_35533.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_643d9 && [1/2] Building CXX object CMakeFiles\cmTC_643d9.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_643d9.exe
 
 
 
 Determining if the include file sys/types.h exists passed with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_50cca && [1/2] Building C object CMakeFiles\cmTC_50cca.dir\CheckIncludeFile.c.obj
-[2/2] Linking C executable cmTC_50cca.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_c9d2b && [1/2] Building C object CMakeFiles\cmTC_c9d2b.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_c9d2b.exe
 
 
 
 Determining if the include file stdint.h exists passed with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_16a79 && [1/2] Building C object CMakeFiles\cmTC_16a79.dir\CheckIncludeFile.c.obj
-[2/2] Linking C executable cmTC_16a79.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_0cf58 && [1/2] Building C object CMakeFiles\cmTC_0cf58.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_0cf58.exe
 
 
 
 Determining if the include file stddef.h exists passed with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_ec084 && [1/2] Building C object CMakeFiles\cmTC_ec084.dir\CheckIncludeFile.c.obj
-[2/2] Linking C executable cmTC_ec084.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_b91eb && [1/2] Building C object CMakeFiles\cmTC_b91eb.dir\CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_b91eb.exe
 
 
 
 Determining size of void* passed with the following output:
 Change Dir: C:/Users/Kaspe/Aalborg Universitet/Kasper personlig/Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20/GrowPlant/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_8fcba && [1/2] Building C object CMakeFiles\cmTC_8fcba.dir\SIZEOF_VOID_PTR.c.obj
-[2/2] Linking C executable cmTC_8fcba.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_5c7ca && [1/2] Building C object CMakeFiles\cmTC_5c7ca.dir\SIZEOF_VOID_PTR.c.obj
+[2/2] Linking C executable cmTC_5c7ca.exe
 
 
 

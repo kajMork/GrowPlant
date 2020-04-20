@@ -1,18 +1,8 @@
-<<<<<<< HEAD
 #include"../include/tomato_plant.h"
 #include"../include/cucumber_plant.h"
-#include<iostream>
-#include<vector>
-#include<thread>
-#include<chrono>
-#include"SFML/Graphics.hpp"
-#include "imgui.h"
-#include "imgui-SFML.h"
-=======
-#include "../include/tomato_plant.h"
-#include "../include/cucumber_plant.h"
 #include "../include/water_tank.h"
 #include "../include/green_house.h"
+#include<thread>
 #include <vector>
 #include <ctime>
 #include <cstdlib>
@@ -24,14 +14,12 @@
 #include "imgui-SFML.h"
 
 using namespace std;
->>>>>>> 1c9743018a6940667af3061da4db26c771351f2c
 
 void simulateOneDay(PlantBase &a_plant)
 {
     a_plant.grow(1);
 }
 
-/*
 void fillUpWater(waterTank &a_watertank)
 {
     if (a_watertank.getWaterAmount()!=a_watertank.getFullwaterAmount());
@@ -47,7 +35,7 @@ void pumpingWater(greenHouse &a_greenhouse, waterTank &a_watertank)
         a_watertank.emptying();
     }
 }
-*/
+
 int main(int argc, char const *argv[])
 {
     using namespace std::chrono_literals;

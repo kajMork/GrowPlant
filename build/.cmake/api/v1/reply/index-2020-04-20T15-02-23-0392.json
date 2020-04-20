@@ -19,14 +19,14 @@
 			"major" : 3,
 			"minor" : 17,
 			"patch" : 0,
-			"string" : "3.17.0-rc3",
-			"suffix" : "rc3"
+			"string" : "3.17.0",
+			"suffix" : ""
 		}
 	},
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-88eb0aced73635f1adc9.json",
+			"jsonFile" : "codemodel-v2-11b5a42c5444774ced77.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-3063fe6480e680add337.json",
+			"jsonFile" : "cache-v2-7634b5acb15b37e026df.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -64,7 +64,7 @@
 				"responses" : 
 				[
 					{
-						"jsonFile" : "cache-v2-3063fe6480e680add337.json",
+						"jsonFile" : "cache-v2-7634b5acb15b37e026df.json",
 						"kind" : "cache",
 						"version" : 
 						{
@@ -73,7 +73,7 @@
 						}
 					},
 					{
-						"jsonFile" : "codemodel-v2-88eb0aced73635f1adc9.json",
+						"jsonFile" : "codemodel-v2-11b5a42c5444774ced77.json",
 						"kind" : "codemodel",
 						"version" : 
 						{
