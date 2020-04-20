@@ -9,5 +9,5 @@ public:
 private:
     float lightAmount{0};
     float LEDLightValue{0};
-    float soil_moisture = 10 //%
+    //float soil_moisture = 10 //%
 };
