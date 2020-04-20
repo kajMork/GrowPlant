@@ -145,11 +145,11 @@
 		},
 		{
 			"backtrace" : 3,
-			"id" : "sfml-window::@662453be02e81ddd067b"
+			"id" : "sfml-graphics::@05826a7f30b7c69d94d4"
 		},
 		{
 			"backtrace" : 3,
-			"id" : "sfml-graphics::@05826a7f30b7c69d94d4"
+			"id" : "sfml-window::@662453be02e81ddd067b"
 		}
 	],
 	"id" : "ImGui-SFML::@b8a07c7962fae99ca6ba",

@@ -1798,6 +1798,18 @@
 			"value" : "TRUE"
 		},
 		{
+			"name" : "SFML_BUILD_TEST_SUITE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "TRUE to build the SFML test suite, FALSE to ignore it"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "FALSE"
+		},
+		{
 			"name" : "SFML_BUILD_WINDOW",
 			"properties" : 
 			[

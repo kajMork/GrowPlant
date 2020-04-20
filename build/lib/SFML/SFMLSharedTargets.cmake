@@ -20,7 +20,7 @@ endif()
 set(_targetsDefined)
 set(_targetsNotDefined)
 set(_expectedTargets)
-foreach(_expectedTarget sfml-system sfml-main sfml-window OpenGL sfml-network sfml-graphics Freetype OpenAL Vorbis FLAC sfml-audio)
+foreach(_expectedTarget sfml-system sfml-main sfml-window OpenGL sfml-network sfml-graphics Freetype OpenAL VORBIS FLAC sfml-audio)
   list(APPEND _expectedTargets ${_expectedTarget})
   if(NOT TARGET ${_expectedTarget})
     list(APPEND _targetsNotDefined ${_expectedTarget})
@@ -71,7 +71,7 @@ set_target_properties(sfml-window PROPERTIES
 add_library(OpenGL INTERFACE IMPORTED)
 
 set_target_properties(OpenGL PROPERTIES
-  INTERFACE_LINK_LIBRARIES "opengl32;glu32"
+  INTERFACE_LINK_LIBRARIES "opengl32"
 )
 
 # Create imported target sfml-network
@@ -106,10 +106,10 @@ set_target_properties(OpenAL PROPERTIES
   INTERFACE_LINK_LIBRARIES "C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/libs-msvc-universal/x64/openal32.lib"
 )
 
-# Create imported target Vorbis
-add_library(Vorbis INTERFACE IMPORTED)
+# Create imported target VORBIS
+add_library(VORBIS INTERFACE IMPORTED)
 
-set_target_properties(Vorbis PROPERTIES
+set_target_properties(VORBIS PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "OV_EXCLUDE_STATIC_CALLBACKS"
   INTERFACE_INCLUDE_DIRECTORIES "C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/headers;C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/headers"
   INTERFACE_LINK_LIBRARIES "C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/libs-msvc-universal/x64/vorbisenc.lib;C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/libs-msvc-universal/x64/vorbisfile.lib;C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/libs-msvc-universal/x64/vorbis.lib;C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/libs-msvc-universal/x64/ogg.lib"

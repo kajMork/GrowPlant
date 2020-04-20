@@ -331,6 +331,9 @@ SFML_BUILD_GRAPHICS:BOOL=TRUE
 //TRUE to build SFML's Network module.
 SFML_BUILD_NETWORK:BOOL=TRUE
 
+//TRUE to build the SFML test suite, FALSE to ignore it
+SFML_BUILD_TEST_SUITE:BOOL=FALSE
+
 //TRUE to build SFML's Window module. This setting is ignored,
 // if the graphics module is built.
 SFML_BUILD_WINDOW:BOOL=TRUE

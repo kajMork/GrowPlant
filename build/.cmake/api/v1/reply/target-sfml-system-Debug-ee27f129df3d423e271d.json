@@ -2,13 +2,13 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/SFML/lib/sfml-audio-d-2.dll"
+			"path" : "lib/SFML/lib/sfml-system-d-2.dll"
 		},
 		{
-			"path" : "lib/SFML/lib/sfml-audio-d.lib"
+			"path" : "lib/SFML/lib/sfml-system-d.lib"
 		},
 		{
-			"path" : "lib/SFML/lib/sfml-audio-d.pdb"
+			"path" : "lib/SFML/lib/sfml-system-d.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -27,7 +27,7 @@
 		"files" : 
 		[
 			"lib/SFML/cmake/Macros.cmake",
-			"lib/SFML/src/SFML/Audio/CMakeLists.txt",
+			"lib/SFML/src/SFML/System/CMakeLists.txt",
 			"lib/SFML/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
@@ -39,25 +39,25 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 78,
+				"line" : 89,
 				"parent" : 0
 			},
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 46,
+				"line" : 63,
 				"parent" : 1
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 161,
+				"line" : 177,
 				"parent" : 1
 			},
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 88,
+				"line" : 104,
 				"parent" : 0
 			},
 			{
@@ -66,7 +66,7 @@
 			{
 				"command" : 4,
 				"file" : 2,
-				"line" : 205,
+				"line" : 211,
 				"parent" : 5
 			},
 			{
@@ -81,14 +81,8 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 168,
+				"line" : 184,
 				"parent" : 1
-			},
-			{
-				"command" : 3,
-				"file" : 1,
-				"line" : 82,
-				"parent" : 0
 			}
 		]
 	},
@@ -104,15 +98,7 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 4,
-					"define" : "FLAC__NO_DLL"
-				},
-				{
-					"backtrace" : 4,
-					"define" : "OV_EXCLUDE_STATIC_CALLBACKS"
-				},
-				{
-					"define" : "SFML_AUDIO_EXPORTS"
+					"define" : "SFML_SYSTEM_EXPORTS"
 				},
 				{
 					"backtrace" : 6,
@@ -144,14 +130,6 @@
 				{
 					"backtrace" : 9,
 					"path" : "C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/src"
-				},
-				{
-					"backtrace" : 10,
-					"path" : "C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/headers/AL"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "C:/Users/Kaj/Documents/GitHub/GrowPlant/lib/SFML/extlibs/headers"
 				}
 			],
 			"language" : "CXX",
@@ -159,39 +137,28 @@
 			[
 				0,
 				2,
-				4,
-				7,
-				9,
-				11,
-				13,
-				15,
+				6,
+				8,
+				12,
+				14,
 				17,
-				19,
-				21,
-				23,
-				25,
-				27,
+				20,
+				24,
 				32,
 				34,
 				36,
-				39,
-				41,
-				43
+				38,
+				40,
+				42,
+				44
 			]
-		}
-	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 4,
-			"id" : "sfml-system::@a0857d3fa2d27435d485"
 		}
 	],
 	"folder" : 
 	{
 		"name" : "SFML"
 	},
-	"id" : "sfml-audio::@2c88909a109778213ad3",
+	"id" : "sfml-system::@a0857d3fa2d27435d485",
 	"install" : 
 	{
 		"destinations" : 
@@ -220,31 +187,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "..\\..\\..\\lib\\sfml-system-d.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "..\\..\\..\\..\\..\\..\\lib\\SFML\\extlibs\\libs-msvc-universal\\x64\\openal32.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "..\\..\\..\\..\\..\\..\\lib\\SFML\\extlibs\\libs-msvc-universal\\x64\\vorbisenc.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "..\\..\\..\\..\\..\\..\\lib\\SFML\\extlibs\\libs-msvc-universal\\x64\\vorbisfile.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "..\\..\\..\\..\\..\\..\\lib\\SFML\\extlibs\\libs-msvc-universal\\x64\\vorbis.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "..\\..\\..\\..\\..\\..\\lib\\SFML\\extlibs\\libs-msvc-universal\\x64\\ogg.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "..\\..\\..\\..\\..\\..\\lib\\SFML\\extlibs\\libs-msvc-universal\\x64\\flac.lib",
+				"fragment" : "winmm.lib",
 				"role" : "libraries"
 			},
 			{
@@ -254,12 +197,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "sfml-audio",
-	"nameOnDisk" : "sfml-audio-d-2.dll",
+	"name" : "sfml-system",
+	"nameOnDisk" : "sfml-system-d-2.dll",
 	"paths" : 
 	{
-		"build" : "lib/SFML/src/SFML/Audio",
-		"source" : "lib/SFML/src/SFML/Audio"
+		"build" : "lib/SFML/src/SFML/System",
+		"source" : "lib/SFML/src/SFML/System"
 	},
 	"sourceGroups" : 
 	[
@@ -293,13 +236,7 @@
 				23,
 				24,
 				25,
-				26
-			]
-		},
-		{
-			"name" : "codecs",
-			"sourceIndexes" : 
-			[
+				26,
 				27,
 				28,
 				29,
@@ -308,7 +245,13 @@
 				32,
 				33,
 				34,
-				35,
+				35
+			]
+		},
+		{
+			"name" : "windows",
+			"sourceIndexes" : 
+			[
 				36,
 				37,
 				38,
@@ -316,7 +259,9 @@
 				40,
 				41,
 				42,
-				43
+				43,
+				44,
+				45
 			]
 		}
 	],
@@ -325,241 +270,247 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/ALCheck.cpp",
+			"path" : "lib/SFML/src/SFML/System/Clock.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/ALCheck.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/AlResource.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/AlResource.hpp",
+			"path" : "lib/SFML/include/SFML/System/Clock.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/AudioDevice.cpp",
+			"path" : "lib/SFML/src/SFML/System/Err.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/AudioDevice.hpp",
+			"path" : "lib/SFML/include/SFML/System/Err.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/Export.hpp",
+			"path" : "lib/SFML/include/SFML/System/Export.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/Listener.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/Listener.hpp",
+			"path" : "lib/SFML/include/SFML/System/InputStream.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/Music.cpp",
+			"path" : "lib/SFML/src/SFML/System/Lock.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/Music.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/Sound.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/Sound.hpp",
+			"path" : "lib/SFML/include/SFML/System/Lock.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundBuffer.cpp",
+			"path" : "lib/SFML/src/SFML/System/Mutex.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundBuffer.hpp",
+			"path" : "lib/SFML/include/SFML/System/Mutex.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundBufferRecorder.cpp",
+			"path" : "lib/SFML/include/SFML/System/NativeActivity.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundBufferRecorder.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/InputSoundFile.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/InputSoundFile.hpp",
+			"path" : "lib/SFML/include/SFML/System/NonCopyable.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/OutputSoundFile.cpp",
+			"path" : "lib/SFML/src/SFML/System/Sleep.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/OutputSoundFile.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundRecorder.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundRecorder.hpp",
+			"path" : "lib/SFML/include/SFML/System/Sleep.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundSource.cpp",
+			"path" : "lib/SFML/src/SFML/System/String.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundSource.hpp",
+			"path" : "lib/SFML/include/SFML/System/String.hpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundStream.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundStream.hpp",
+			"path" : "lib/SFML/include/SFML/System/String.inl",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileFactory.cpp",
+			"path" : "lib/SFML/src/SFML/System/Thread.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Thread.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Thread.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "lib/SFML/src/SFML/System/ThreadLocal.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/ThreadLocal.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/ThreadLocalPtr.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/ThreadLocalPtr.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "lib/SFML/src/SFML/System/Time.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Time.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Utf.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Utf.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Vector2.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Vector2.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Vector3.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/Vector3.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "lib/SFML/src/SFML/System/FileInputStream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/FileInputStream.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "lib/SFML/src/SFML/System/MemoryInputStream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/include/SFML/System/MemoryInputStream.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "lib/SFML/src/SFML/System/Win32/ClockImpl.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundFileFactory.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundFileFactory.inl",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundFileReader.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileReaderFlac.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileReaderFlac.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileReaderOgg.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileReaderOgg.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileReaderWav.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileReaderWav.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/include/SFML/Audio/SoundFileWriter.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileWriterFlac.hpp",
+			"path" : "lib/SFML/src/SFML/System/Win32/ClockImpl.hpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileWriterFlac.cpp",
+			"path" : "lib/SFML/src/SFML/System/Win32/MutexImpl.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileWriterOgg.hpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileWriterOgg.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileWriterWav.hpp",
+			"path" : "lib/SFML/src/SFML/System/Win32/MutexImpl.hpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "lib/SFML/src/SFML/Audio/SoundFileWriterWav.cpp",
+			"path" : "lib/SFML/src/SFML/System/Win32/SleepImpl.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/src/SFML/System/Win32/SleepImpl.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "lib/SFML/src/SFML/System/Win32/ThreadImpl.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/src/SFML/System/Win32/ThreadImpl.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "lib/SFML/src/SFML/System/Win32/ThreadLocalImpl.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "lib/SFML/src/SFML/System/Win32/ThreadLocalImpl.hpp",
 			"sourceGroupIndex" : 1
 		}
 	],
