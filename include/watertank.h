@@ -3,10 +3,10 @@
 class Watertank
 {
     private:
-    float waterAmount = 100;
+    float waterAmount = 1000;
 
     public:
-    bool empty;
+    bool empty = false;
     float getWaterAmount(){return waterAmount;};
     void fillUp(float amount);
     void emptying(float amount);
