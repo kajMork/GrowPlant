@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include/**"                
             ],
             "defines": [
                 "_DEBUG",
@@ -14,8 +15,9 @@
             "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.25.28610/bin/Hostx64/x64/cl.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
-            "configurationProvider": "vector-of-bool.cmake-tools"
+            "configurationProvider": "vector-of-bool.cmake-tools",
+            "compilerArgs": [],
+            "intelliSenseMode": "msvc-x64"
         }
     ],
     "version": 4
