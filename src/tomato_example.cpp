@@ -60,13 +60,13 @@ int main(int argc, char const *argv[])
 
     // Texture rendering
     sf::Texture greenhouseTex;
-    if(!greenhouseTex.loadFromFile("C:/Users/ejer/Desktop/DrivhusKode/GrowPlant/pictures/Drivhus_2_v5.png")){
+    if(!greenhouseTex.loadFromFile("..\\pictures\\Drivhus_2_v5.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     greenhouseTex.setSmooth(true);
 
     sf::Texture stalk;
-    if(!stalk.loadFromFile("C:/Users/ejer/Desktop/DrivhusKode/GrowPlant/pictures/stalk.jpg")){
+    if(!stalk.loadFromFile("..\\pictures\\stalk.jpg")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
