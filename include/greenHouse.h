@@ -1,14 +1,15 @@
 #pragma once
 
-class greenhouse
+class Greenhouse
 {
-public:
-    int plantSpaces = 0;
-    
-    void pumpWater(float WaterAmountPumping);
-    void adjustLight(float differenceInLightamount);
+    private:
+    float LEDLightValue;
+    const int LEDLightMaxValue = 100;
+    int plantSpaces;
 
-private:
-    float lightAmount{0};
-    float LEDLightValue{0};
+    public:
+    float getLEDLightValue(){ return LEDLightValue; };
+    int getPlantSpacesAvailable(){ return plantSpaces; };
+    void pumpWater(float amount);
+    void adjustLight(float amount);
 };

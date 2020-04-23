@@ -1,14 +1,13 @@
 #pragma once
 
-class waterTank
+class Watertank
 {
-public:
-    void fillUp();
-    void emtying(float waterEmptyed);
-    double getWaterAmount();
+    private:
+    float waterAmount = 1000;
 
-private:
-    float waterAmount = 0;
-    float fullwaterAmount = 1000;
+    public:
     bool empty = false;
+    float getWaterAmount(){return waterAmount;};
+    void fillUp(float amount);
+    void emptying(float amount);
 };
