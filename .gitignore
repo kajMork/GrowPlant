@@ -1,0 +1,12 @@
+**/growplant/.vscode
+**/growplant/build
+**/growplant/lib
+build/
+build
+lib/
+lib
+.vscode
+.vscode/
+/[Bd]uild/
+/[ib]ib/
+/[.e]vscode/
