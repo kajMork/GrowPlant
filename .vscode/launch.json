@@ -13,7 +13,10 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build",
             "environment": [],
-            "externalConsole": false
+            "externalConsole": false,
+            "env": {
+                "Path": "${env:Path};${workspaceFolder}/build/libs/SFML/lib;${workspaceFolder}/build/libs/imgui-sfml"
+            }
         }
     ]
 }
