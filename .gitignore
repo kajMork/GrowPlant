@@ -1,0 +1,6 @@
+/[Bd]uild/
+build
+.vscode
+/.vscode/
+/libs/
+libs
