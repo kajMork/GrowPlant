@@ -11,29 +11,38 @@
 #include <iostream>
 #include <stdlib.h>
 
-void simulateDays(PlantBase &a_plant, Watertank &waterTank, int days, int waterNeedAmount, int plantsAmount){
-    
-    for (int i = 0; i < plantsAmount; i++)
-    {
-        for (int i = 0; i < days; i++)
+void simulateHours(PlantBase &a_plant, Watertank &waterTank, int hours, int waterNeedAmount, int plantsAmount){
+        for (int i = 0; i < hours; i++)
         {
-            waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 10));
-
+            if (a_plant.getHeight() <= a_plant.getMaxHeight())
+            {
+                waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 20 ));
+            }
+            
             if(waterTank.getWaterAmount() <= 0)
                 waterTank.empty = true;
             else
                 waterTank.empty = false;
             
-            if(!waterTank.empty)
+            if(!waterTank.empty && a_plant.getHeight() <= a_plant.getMaxHeight())
                 a_plant.grow(1);
             else break;
         }
-    } 
-
 }
 
 void simulateOneDay(PlantBase &a_plant){
     a_plant.grow(1);
+}
+
+int getClock (int totalHours)
+{   
+    int timeclock = totalHours % 24 + 8;
+    if (timeclock > 24)
+    {
+        timeclock = timeclock - 24;
+    }
+
+    return timeclock;
 }
 
 int main(int argc, char const *argv[])
@@ -54,7 +63,9 @@ int main(int argc, char const *argv[])
     std::cout << "Third plant: " << my_plant3.getGrowthRate() << std::endl;
 
     // Variables
-    int daysToWait = 1;
+    int time = 8;
+    int hoursToWait = 1;
+    int totalHours = 0;
     int plantsAmount = 3;
 
     // Set render window
@@ -75,6 +86,23 @@ int main(int argc, char const *argv[])
     }
     stalk.setSmooth(true);
 
+    sf::Texture sun;
+    if(!sun.loadFromFile("..\\pictures\\SunV3.png")){
+        std::cout << "Couldn't load textures, check directory." << std::endl;
+    }
+    sun.setSmooth(true);
+
+    sf::Texture terase;
+    if(!terase.loadFromFile("..\\pictures\\TeraseV2.png")){
+        std::cout << "Couldn't load textures, check directory." << std::endl;
+    }
+    terase.setSmooth(true);
+
+    sf::Texture sky;
+    if(!sky.loadFromFile("..\\pictures\\Sky.png")){
+        std::cout << "Couldn't load textures, check directory." << std::endl;
+    }
+    stalk.setSmooth(true);
     const sf::Texture *pTexture = &stalk;
 
     sf::Sprite greenhouseSprite;
@@ -82,6 +110,20 @@ int main(int argc, char const *argv[])
     greenhouseSprite.setPosition(100, 70);
     greenhouseSprite.setScale(0.8, 0.8);
 
+    sf::Sprite sunSprite;
+    sunSprite.setTexture(sun);
+    sunSprite.setPosition(450,140);
+    sunSprite.setScale(0.4, 0.4);
+
+    sf::Sprite teraseSprite;
+    teraseSprite.setTexture(terase);
+    teraseSprite.setPosition(-100,-100);
+    teraseSprite.setScale(1, 1);
+
+    sf::Sprite skySprite;
+    skySprite.setTexture(sky);
+    skySprite.setPosition(-100,-100);
+    skySprite.setScale(0.7, 0.7);
     
     // sfml clock for updating
     sf::Clock deltaClock;
@@ -118,30 +160,60 @@ int main(int argc, char const *argv[])
 
         // Plant simulator controller
         ImGui::Begin("Controller");
-            // Being able to see and change how many days the user wants to wait
-            std::string strDays = "Days to wait: " + std::to_string(daysToWait);
-            const char *cd = strDays.c_str();
-            ImGui::TextUnformatted(cd);
+            // Being able to see and change how many Hours the user wants to wait 
+            std::string strHours = "Hours to wait: " + std::to_string(hoursToWait);
+            std::string strTotalTime = "Total time waited: ";
+            std::string strTotalDays =  std::to_string((int)totalHours/24) + " day(s).";
+            std::string strTotalHours = std::to_string((int)totalHours % 24) + " hour(s).";
+            std::string strClock = "Clock: " + std::to_string((int)getClock(totalHours)) + ":00";
+            const char *cc_Hours = strHours.c_str();
+            const char *cc_TotalTime = strTotalTime.c_str();
+            const char *cc_TotalDays = strTotalDays.c_str();
+            const char *cc_TotalHours = strTotalHours.c_str();
+            const char *cc_Clock = strClock.c_str();
+            ImGui::TextUnformatted(cc_Hours);
+            ImGui::TextUnformatted(cc_TotalTime);
+            ImGui::TextUnformatted(cc_TotalDays);
+            ImGui::TextUnformatted(cc_TotalHours);
+            ImGui::TextUnformatted(cc_Clock);
+            
 
-            if(ImGui::Button("Remove day")){
-                daysToWait--;
+            if(ImGui::Button("Remove hour")){
+                hoursToWait--;
             } ImGui::SameLine();
-            if(ImGui::Button("Add day")){
-                daysToWait++;
-            } 
-
-            if(ImGui::Button("Wait the days")){
-                // First TomatoPlant
-                simulateDays(my_plant, my_watertank, daysToWait, 10, plantsAmount);
+            if(ImGui::Button("Add hour")){
+                hoursToWait++;
+            }
+            if(ImGui::Button("Wait one day")){
+                simulateHours(my_plant, my_watertank, 24, 0.4, plantsAmount);
                 tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
 
                 // Second TomatoPlant
-                simulateDays(my_plant2, my_watertank, daysToWait, 10, plantsAmount);
+                simulateHours(my_plant2, my_watertank, 24, 0.4, plantsAmount);
                 tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
 
                 // Third TomatoPlant
-                simulateDays(my_plant3, my_watertank, daysToWait, 10, plantsAmount);
+                simulateHours(my_plant3, my_watertank, 24, 0.4, plantsAmount);
                 tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+
+                totalHours = totalHours + 24;
+                
+            } 
+
+            if(ImGui::Button("Wait the hours")){
+                // First TomatoPlant
+                simulateHours(my_plant, my_watertank, hoursToWait, 0.4, plantsAmount);
+                tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
+
+                // Second TomatoPlant
+                simulateHours(my_plant2, my_watertank, hoursToWait, 0.4, plantsAmount);
+                tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
+
+                // Third TomatoPlant
+                simulateHours(my_plant3, my_watertank, hoursToWait, 0.4, plantsAmount);
+                tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+
+                totalHours = totalHours + hoursToWait;
             } 
 
             // Show water amount and add button for refill
@@ -158,9 +230,12 @@ int main(int argc, char const *argv[])
 
         ImGui::End();
 
-        window.clear(sf::Color::Black);
+        window.clear(sf::Color::White);
 
         // Draw to screen
+        window.draw(skySprite);
+        window.draw(sunSprite);
+        window.draw(teraseSprite);
         window.draw(greenhouseSprite);
         window.draw(tomatoStalk);
         window.draw(tomatoStalk2);
