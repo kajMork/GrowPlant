@@ -2,10 +2,9 @@
 build
 .vscode
 /.vscode/
-/lib
-lib
-/libs
-libs
-/sh.exe.stackdump
+/lib/
+/libs/
+
+/sh.exe.stackdump/
 sh.exe.stackdump
-README.md
+/README.md
