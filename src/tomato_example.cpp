@@ -240,13 +240,12 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            std::cout << "rgb_codenight: " + std::to_string((double)rgb_codenight) << std::endl;
+            
         }
         //Keep the spritetextures dark from 24:00 to 05:00
         if (getClock(totalHours)>23 && getClock(totalHours)<=5 || getClock(totalHours)>=1 && getClock(totalHours)<=5)
         {
-            std::cout << "I got here" << std::endl;
-            std::cout << "rgb_codenight: " + std::to_string((double)rgb_codenight) << std::endl;
+            
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
@@ -261,12 +260,12 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             window.clear(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
-            std::cout << "rgb_codeday: " + std::to_string((double)rgb_codeday) << std::endl;
+            
         }
         //Keep the spritetextures light from 08:00 to 19:00
         if(getClock(totalHours)>7 && getClock(totalHours)<=19)
         {
-            std::cout << "I got here" << std::endl;
+            
             window.clear(sf::Color::White);
             sunSprite.setColor(sf::Color::White);
             skySprite.setColor(sf::Color::White);
