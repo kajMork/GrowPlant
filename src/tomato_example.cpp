@@ -112,8 +112,8 @@ int main(int argc, char const *argv[])
 
     sf::Sprite sunSprite;
     sunSprite.setTexture(sun);
-    sunSprite.setPosition(450,140);
     sunSprite.setScale(0.4, 0.4);
+    
 
     sf::Sprite teraseSprite;
     teraseSprite.setTexture(terase);
@@ -160,7 +160,8 @@ int main(int argc, char const *argv[])
 
         // Plant simulator controller
         ImGui::Begin("Controller");
-            // Being able to see and change how many Hours the user wants to wait 
+            // Being able to see and change how many Hours the user wants to wait
+            // Being able to track total hours and time of the day. 
             std::string strHours = "Hours to wait: " + std::to_string(hoursToWait);
             std::string strTotalTime = "Total time waited: ";
             std::string strTotalDays =  std::to_string((int)totalHours/24) + " day(s).";
@@ -214,7 +215,7 @@ int main(int argc, char const *argv[])
                 tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
 
                 totalHours = totalHours + hoursToWait;
-            } 
+            }
 
             // Show water amount and add button for refill
             ImGui::Begin("Watertank");
@@ -226,11 +227,56 @@ int main(int argc, char const *argv[])
             }
             ImGui::End();
             
-            // Show LED lights and their value, button for changing value.
-
+        //Update spritetextures color for the time of the day.
+        double rgb_codenight;
+        double rgb_codeday;
         ImGui::End();
-
-        window.clear(sf::Color::White);
+        //Daylight disappears from 20:00 to 24:00 
+        if (getClock(totalHours)>19 && getClock(totalHours)<25)
+        {   
+            //Make spritetextures darker for each incremented hour. 
+            rgb_codenight = 255-(getClock(totalHours)-20)*48.75;
+            sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            std::cout << "rgb_codenight: " + std::to_string((double)rgb_codenight) << std::endl;
+        }
+        //Keep the spritetextures dark from 24:00 to 05:00
+        if (getClock(totalHours)>23 && getClock(totalHours)<=5 || getClock(totalHours)>=1 && getClock(totalHours)<=5)
+        {
+            std::cout << "I got here" << std::endl;
+            std::cout << "rgb_codenight: " + std::to_string((double)rgb_codenight) << std::endl;
+            window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+        }
+        //Daylight appears from 06:00 to 08:00
+        if (getClock(totalHours)>5 && getClock(totalHours)<8)
+        {
+            //Make spritetextures lighter for each incremented hour. 
+            rgb_codeday = rgb_codenight+(getClock(totalHours)-4)*48.75;
+            sunSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+            skySprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+            teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+            window.clear(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+            std::cout << "rgb_codeday: " + std::to_string((double)rgb_codeday) << std::endl;
+        }
+        //Keep the spritetextures light from 08:00 to 19:00
+        if(getClock(totalHours)>7 && getClock(totalHours)<=19)
+        {
+            std::cout << "I got here" << std::endl;
+            window.clear(sf::Color::White);
+            sunSprite.setColor(sf::Color::White);
+            skySprite.setColor(sf::Color::White);
+            teraseSprite.setColor(sf::Color::White);
+        }
+        //Update the suns position depending on the time of the day
+        //sunYPos is calculated with the linear formular: 500x+17y=9450, where x = getClock().
+        double sunYPos = (9450/17)-(500*getClock(totalHours))/17 ;
+        sunSprite.setPosition(450,sunYPos);
+        
 
         // Draw to screen
         window.draw(skySprite);
