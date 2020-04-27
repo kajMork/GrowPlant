@@ -1,2 +1,4 @@
-/[Bb]uild/
+/[Bd]uild/
 build
+.vscode
+/.vscode/
