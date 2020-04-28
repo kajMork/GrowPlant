@@ -11,7 +11,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-void simulateHours(PlantBase &a_plant, Watertank &waterTank, int hours, int waterNeedAmount, int plantsAmount){
+void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_greenhouse, int hours, int waterNeedAmount, int plantsAmount, bool putSoil){
         for (int i = 0; i < hours; i++)
         {
             if (a_plant.getHeight() <= a_plant.getMaxHeight())
@@ -25,13 +25,14 @@ void simulateHours(PlantBase &a_plant, Watertank &waterTank, int hours, int wate
                 waterTank.empty = false;
             
             if(!waterTank.empty && a_plant.getHeight() <= a_plant.getMaxHeight())
-                a_plant.grow(1);
+                a_plant.grow(1, putSoil, a_greenhouse);
             else break;
+            a_greenhouse.MoistureProcent(putSoil);
         }
 }
 
-void simulateOneDay(PlantBase &a_plant){
-    a_plant.grow(1);
+void simulateOneDay(PlantBase &a_plant, bool putSoil, Greenhouse &a_greenhouse){
+    a_plant.grow(1, putSoil, a_greenhouse);
 }
 
 int getClock (int totalHours)
@@ -67,6 +68,7 @@ int main(int argc, char const *argv[])
     int hoursToWait = 1;
     int totalHours = 0;
     int plantsAmount = 3;
+    bool putSoil=false;
 
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
@@ -75,31 +77,31 @@ int main(int argc, char const *argv[])
 
     // Texture rendering
     sf::Texture greenhouseTex;
-    if(!greenhouseTex.loadFromFile("..\\pictures\\Drivhus_2_v5.png")){
+    if(!greenhouseTex.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\Drivhus_2_v5.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     greenhouseTex.setSmooth(true);
 
     sf::Texture stalk;
-    if(!stalk.loadFromFile("..\\pictures\\stalk.jpg")){
+    if(!stalk.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\stalk.jpg")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
 
     sf::Texture sun;
-    if(!sun.loadFromFile("..\\pictures\\SunV3.png")){
+    if(!sun.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\SunV3.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     sun.setSmooth(true);
 
     sf::Texture terase;
-    if(!terase.loadFromFile("..\\pictures\\TeraseV2.png")){
+    if(!terase.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\TeraseV2.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     terase.setSmooth(true);
 
     sf::Texture sky;
-    if(!sky.loadFromFile("..\\pictures\\Sky.png")){
+    if(!sky.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\Sky.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
@@ -158,8 +160,26 @@ int main(int argc, char const *argv[])
 
     // UI SEGMENTS //
 
-        // Plant simulator controller
-        ImGui::Begin("Controller");
+            // Soil changing
+            ImGui::Begin("Soil");
+            std::string strsoilMoisture = "Soilmoisture: " + std::to_string(my_greenhouse.getSoilMoisture());
+            const char *cc_SoilMoisture = strsoilMoisture.c_str();
+            ImGui::TextUnformatted(cc_SoilMoisture);
+
+            std::string strSoilChange = "Change soil: " + std::to_string(putSoil);
+            const char *cc_SoilChange = strSoilChange.c_str();
+            ImGui::TextUnformatted(cc_SoilChange);
+
+            if(ImGui::Button("Yes")){
+                putSoil=true;
+            }
+            if(ImGui::Button("No")){
+                putSoil=false;
+            }
+            
+            ImGui::End();
+
+            ImGui::Begin("Controller");
             // Being able to see and change how many Hours the user wants to wait
             // Being able to track total hours and time of the day. 
             std::string strHours = "Hours to wait: " + std::to_string(hoursToWait);
@@ -186,15 +206,15 @@ int main(int argc, char const *argv[])
                 hoursToWait++;
             }
             if(ImGui::Button("Wait one day")){
-                simulateHours(my_plant, my_watertank, 24, 0.4, plantsAmount);
+                simulateHours(my_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
 
                 // Second TomatoPlant
-                simulateHours(my_plant2, my_watertank, 24, 0.4, plantsAmount);
+                simulateHours(my_plant2, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
 
                 // Third TomatoPlant
-                simulateHours(my_plant3, my_watertank, 24, 0.4, plantsAmount);
+                simulateHours(my_plant3, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
 
                 totalHours = totalHours + 24;
@@ -203,15 +223,15 @@ int main(int argc, char const *argv[])
 
             if(ImGui::Button("Wait the hours")){
                 // First TomatoPlant
-                simulateHours(my_plant, my_watertank, hoursToWait, 0.4, plantsAmount);
+                simulateHours(my_plant, my_watertank, my_greenhouse,hoursToWait, 0.4, plantsAmount, putSoil);
                 tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
 
                 // Second TomatoPlant
-                simulateHours(my_plant2, my_watertank, hoursToWait, 0.4, plantsAmount);
+                simulateHours(my_plant2, my_watertank, my_greenhouse,hoursToWait, 0.4, plantsAmount, putSoil);
                 tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
 
                 // Third TomatoPlant
-                simulateHours(my_plant3, my_watertank, hoursToWait, 0.4, plantsAmount);
+                simulateHours(my_plant3, my_watertank, my_greenhouse,hoursToWait, 0.4, plantsAmount, putSoil);
                 tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
 
                 totalHours = totalHours + hoursToWait;

@@ -1,5 +1,6 @@
 #pragma once
 #include "../include/plant_base.h"
+#include "../include/greenhouse.h"
 #include <stdlib.h>
 
 class TomatoPlant : public PlantBase
@@ -10,7 +11,7 @@ public:
     float getGrowthRate(){return growth_rate;};
 
     void setHeight(double newHeight) {height = newHeight;}
-    void grow(int days) override;
+    void grow(int days, bool newSoil, Greenhouse &a_greenhouse) override;
     int getMaxHeight() override {return max_Height;};
 
 private:
