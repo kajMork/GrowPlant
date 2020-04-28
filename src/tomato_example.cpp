@@ -12,11 +12,13 @@
 #include <stdlib.h>
 
 void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_greenhouse, int hours, int waterNeedAmount, int plantsAmount, bool putSoil){
+        int pumpedwater;
+
         for (int i = 0; i < hours; i++)
         {
-            if (a_plant.getHeight() <= a_plant.getMaxHeight())
+            if (a_greenhouse.getSoilMoisture() <= (10+2*i) && a_greenhouse.getSoilMoisture()<=25)
             {
-                waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 20 ));
+                pumpedwater = 2;
             }
             
             if(waterTank.getWaterAmount() <= 0)
@@ -24,10 +26,16 @@ void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_green
             else
                 waterTank.empty = false;
             
-            if(!waterTank.empty && a_plant.getHeight() <= a_plant.getMaxHeight())
-                a_plant.grow(1, putSoil, a_greenhouse);
-            else break;
-            a_greenhouse.MoistureProcent(putSoil);
+            if(a_plant.getHeight() <= a_plant.getMaxHeight())
+            {
+                a_greenhouse.MoistureProcent(putSoil, pumpedwater);
+                if (a_greenhouse.getSoilMoisture()>7)
+                {
+                   a_plant.grow(1, putSoil, a_greenhouse);
+                }
+            }
+            else
+            break;
         }
 }
 

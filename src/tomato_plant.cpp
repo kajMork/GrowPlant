@@ -10,6 +10,6 @@ void TomatoPlant::grow(int days, bool newSoil, Greenhouse &a_greenhouse)
     }
     else
     {
-        height = height + days * growth_rate * (a_greenhouse.getSoilMoisture()/30);
+        height = height + days * growth_rate * (a_greenhouse.getSoilMoisture()/20);
     }
 }

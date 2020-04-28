@@ -16,16 +16,19 @@ class Greenhouse
         void adjustLight(float amount);
         int getSoilMoisture(){ return soilMoisture; };
 
-        void MoistureProcent(bool putSoil)
+        void MoistureProcent(bool newSoil, int addedWater)
         {
-            if (putSoil=true)
+            if (newSoil==true)
             {
-               int RandomNumberNewSoil = rand() % 45 + 0;
-               soilMoisture=RandomNumberNewSoil;
-               putSoil=false;
+               int RandomNumberNewSoil = rand() % 45 + 5;
+               soilMoisture = RandomNumberNewSoil;
             }
-            int numEvpapor = rand() % 5 + 0;
-            int evapor = numEvpapor/6;
-            soilMoisture=soilMoisture-evapor;
+
+            if (soilMoisture > 0)
+            {
+                int numEvpapor = rand() % 2 + 0;
+                
+                soilMoisture = soilMoisture - numEvpapor + addedWater/5;
+            }
         }
 };
