@@ -12,13 +12,11 @@
 #include <stdlib.h>
 
 void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_greenhouse, int hours, int waterNeedAmount, int plantsAmount, bool putSoil){
-        int pumpedwater;
-
         for (int i = 0; i < hours; i++)
         {
-            if (a_greenhouse.getSoilMoisture() <= (10+2*i) && a_greenhouse.getSoilMoisture()<=25)
+            if (a_plant.getHeight() <= a_plant.getMaxHeight())
             {
-                pumpedwater = 2;
+                waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 20));
             }
             
             if(waterTank.getWaterAmount() <= 0)
@@ -28,7 +26,7 @@ void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_green
             
             if(a_plant.getHeight() <= a_plant.getMaxHeight())
             {
-                a_greenhouse.MoistureProcent(putSoil, pumpedwater);
+                a_greenhouse.MoistureProcent(putSoil, waterNeedAmount + (a_plant.getHeight() / 20));
                 if (a_greenhouse.getSoilMoisture()>7)
                 {
                    a_plant.grow(1, putSoil, a_greenhouse);
@@ -85,31 +83,31 @@ int main(int argc, char const *argv[])
 
     // Texture rendering
     sf::Texture greenhouseTex;
-    if(!greenhouseTex.loadFromFile("..\\pictures\\Drivhus_2_v5.png")){
+    if(!greenhouseTex.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\Drivhus_2_v5.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     greenhouseTex.setSmooth(true);
 
     sf::Texture stalk;
-    if(!stalk.loadFromFile("..\\pictures\\stalk.jpg")){
+    if(!stalk.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\stalk.jpg")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
 
     sf::Texture sun;
-    if(!sun.loadFromFile("..\\pictures\\SunV3.png")){
+    if(!sun.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\SunV3.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     sun.setSmooth(true);
 
     sf::Texture terase;
-    if(!terase.loadFromFile("..\\pictures\\TeraseV2.png")){
+    if(!terase.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\TeraseV2.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     terase.setSmooth(true);
 
     sf::Texture sky;
-    if(!sky.loadFromFile("..\\pictures\\Sky.png")){
+    if(!sky.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\Sky.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
