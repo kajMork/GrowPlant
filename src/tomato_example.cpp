@@ -85,31 +85,31 @@ int main(int argc, char const *argv[])
 
     // Texture rendering
     sf::Texture greenhouseTex;
-    if(!greenhouseTex.loadFromFile("pictures\\Drivhus_2_v5.png")){
+    if(!greenhouseTex.loadFromFile("..\\pictures\\Drivhus_2_v5.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     greenhouseTex.setSmooth(true);
 
     sf::Texture stalk;
-    if(!stalk.loadFromFile("pictures\\stalk.jpg")){
+    if(!stalk.loadFromFile("..\\pictures\\stalk.jpg")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
 
     sf::Texture sun;
-    if(!sun.loadFromFile("pictures\\SunV3.png")){
+    if(!sun.loadFromFile("..\\pictures\\SunV3.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     sun.setSmooth(true);
 
     sf::Texture terase;
-    if(!terase.loadFromFile("pictures\\TeraseV2.png")){
+    if(!terase.loadFromFile("..\\pictures\\TeraseV2.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     terase.setSmooth(true);
 
     sf::Texture sky;
-    if(!sky.loadFromFile("pictures\\Sky.png")){
+    if(!sky.loadFromFile("..\\pictures\\Sky.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
