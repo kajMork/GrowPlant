@@ -69,9 +69,11 @@ int main(int argc, char const *argv[])
     int plantsAmount = 3;
 
 // Definere input til menuen
-    const std::string items[] = { my_plant3.getName(), my_cucumber_plant.getName()};
+    const std::string items[] = { my_plant3.getName(), my_cucumber_plant.getName() };
     static const char* current_item = NULL;
     ImGuiComboFlags flags = ImGuiComboFlags_NoArrowButton;
+
+    std::cout << my_plant.getName() ;
 
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
@@ -269,6 +271,7 @@ int main(int argc, char const *argv[])
         }
 
         // Herfra begynder dit Mads:
+        /*
 ImGuiStyle& style = ImGui::GetStyle();
 float w = ImGui::CalcItemWidth();
 float spacing = style.ItemInnerSpacing.x;
@@ -276,7 +279,7 @@ float button_sz = ImGui::GetFrameHeight();
 ImGui::PushItemWidth(w - spacing * 2.0f - button_sz * 2.0f);
 if (ImGui::BeginCombo("##custom combo", current_item, ImGuiComboFlags_NoArrowButton))
 {
-    for (int n = 0; n < IM_ARRAYSIZE(items); n++)
+    for (int n = 0; n < IM_ARRAYSIZE(items[]); n++)
     {
         bool is_selected = (current_item == items[n]);
         if (ImGui::Selectable(items[n], is_selected))
@@ -294,6 +297,7 @@ if (ImGui::ArrowButton("##r", ImGuiDir_Down))
 ImGui::SameLine(0, style.ItemInnerSpacing.x);
 ImGui::Text("Vælg en plante");
 // Det stopper her.
+*/
 
         //Keep the spritetextures light from 08:00 to 19:00
         if(getClock(totalHours)>7 && getClock(totalHours)<=19)
