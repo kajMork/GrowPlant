@@ -11,7 +11,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_greenhouse, int hours, int waterNeedAmount, int plantsAmount, bool putSoil){
+void simulateHours(PlantBase &a_plant, WaterTank &waterTank, GreenHouse &a_greenhouse, int hours, int waterNeedAmount, int plantsAmount, bool putSoil){
     for (int i = 0; i <= hours; i++)
     {
         if (hours!=0)
@@ -66,16 +66,11 @@ int main(int argc, char const *argv[])
     srand(time(NULL));
     
     // Define types
-    TomatoPlant my_plant;
-    TomatoPlant my_plant2;
-    TomatoPlant my_plant3;
-    CucumberPlant my_cucumber_plant;
-    Greenhouse my_greenhouse;
-    Watertank my_watertank;
-    
-    std::cout << "First plant: " << my_plant.getGrowthRate() << std::endl;
-    std::cout << "Second plant: " << my_plant2.getGrowthRate() << std::endl;
-    std::cout << "Third plant: " << my_plant3.getGrowthRate() << std::endl;
+    TomatoPlant tomato_plant1;
+    TomatoPlant tomato_plant2;
+    CucumberPlant cucumber_plant;
+    GreenHouse my_greenhouse;
+    WaterTank my_watertank;
 
     // Variables
         
@@ -193,11 +188,11 @@ int main(int argc, char const *argv[])
     sf::Clock deltaClock;
 
     // Tomato plant 1
-    sf::RectangleShape tomatoStalk {sf::Vector2f{5.0, -my_plant.getHeight()}};
+    sf::RectangleShape tomatoStalk {sf::Vector2f{5.0, -tomato_plant1.getHeight()}};
     tomatoStalk.setPosition(181, my_plantPosition);
     tomatoStalk.setTexture(pTexture);
         // Tomato plant brach 1
-        sf::RectangleShape tomatoStalkBranch1 {sf::Vector2f{5.0, -my_plant.getHeight()/2}};
+        sf::RectangleShape tomatoStalkBranch1 {sf::Vector2f{5.0, -tomato_plant1.getHeight()/2}};
         tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
         tomatoStalkBranch1.setTexture(pTexture);
         tomatoStalkBranch1.setRotation (70);
@@ -207,60 +202,60 @@ int main(int argc, char const *argv[])
             tomatoesSprite.setScale(sizeTomatoes, sizeTomatoes);
 
         // Tomato plant brach 2
-        sf::RectangleShape tomatoStalkBranch2 {sf::Vector2f{5.0, -my_plant.getHeight()/2}};
+        sf::RectangleShape tomatoStalkBranch2 {sf::Vector2f{5.0, -tomato_plant1.getHeight()/2}};
         tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
         tomatoStalkBranch2.setTexture(pTexture);
         tomatoStalkBranch2.setRotation (-70);
         // Tomato plant brach 3
-        sf::RectangleShape tomatoStalkBranch3 {sf::Vector2f{5.0, -my_plant.getHeight()/2}};
+        sf::RectangleShape tomatoStalkBranch3 {sf::Vector2f{5.0, -tomato_plant1.getHeight()/2}};
         tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
         tomatoStalkBranch3.setTexture(pTexture);
         tomatoStalkBranch3.setRotation (70);
     
     // Tomato plant 2
-    sf::RectangleShape tomatoStalk2 {sf::Vector2f{5.0, -my_plant2.getHeight()}};
+    sf::RectangleShape tomatoStalk2 {sf::Vector2f{5.0, -tomato_plant2.getHeight()}};
     tomatoStalk2.setPosition(284, my_plant2Position);
     tomatoStalk2.setTexture(pTexture);
-        sf::RectangleShape tomatoStalk2Branch1 {sf::Vector2f{5.0, -my_plant2.getHeight()/2}};
+        sf::RectangleShape tomatoStalk2Branch1 {sf::Vector2f{5.0, -tomato_plant2.getHeight()/2}};
         tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
         tomatoStalk2Branch1.setTexture(pTexture);
         tomatoStalk2Branch1.setRotation (70);
         // Tomato plant brach 2
-        sf::RectangleShape tomatoStalk2Branch2 {sf::Vector2f{5.0, -my_plant2.getHeight()/2}};
+        sf::RectangleShape tomatoStalk2Branch2 {sf::Vector2f{5.0, -tomato_plant2.getHeight()/2}};
         tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
         tomatoStalk2Branch2.setTexture(pTexture);
         tomatoStalk2Branch2.setRotation (-70);
         // Tomato plant brach 3
-        sf::RectangleShape tomatoStalk2Branch3 {sf::Vector2f{5.0, -my_plant2.getHeight()/2}};
+        sf::RectangleShape tomatoStalk2Branch3 {sf::Vector2f{5.0, -tomato_plant2.getHeight()/2}};
         tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
         tomatoStalk2Branch3.setTexture(pTexture);
         tomatoStalk2Branch3.setRotation (70);
 
     // Cucumber plant
-    sf::RectangleShape CucumberStalk {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()}};
+    sf::RectangleShape CucumberStalk {sf::Vector2f{5.0, -cucumber_plant.getHeight()}};
     CucumberStalk.setPosition(230, my_cucumber_plantPosition);
     CucumberStalk.setTexture(pTexture);
-    sf::RectangleShape CucumberStalkBranch1 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+    sf::RectangleShape CucumberStalkBranch1 {sf::Vector2f{5.0, -cucumber_plant.getHeight()/2}};
         CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
         CucumberStalkBranch1.setTexture(pTexture);
         CucumberStalkBranch1.setRotation (90);
         // Cucumber plant brach 1
-        sf::RectangleShape CucumberStalkBranch2 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        sf::RectangleShape CucumberStalkBranch2 {sf::Vector2f{5.0, -cucumber_plant.getHeight()/2}};
         CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
         CucumberStalkBranch2.setTexture(pTexture);
         CucumberStalkBranch2.setRotation (-90);
         // Cucumber plant brach 2
-        sf::RectangleShape CucumberStalkBranch3 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        sf::RectangleShape CucumberStalkBranch3 {sf::Vector2f{5.0, -cucumber_plant.getHeight()/2}};
         CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
         CucumberStalkBranch3.setTexture(pTexture);
         CucumberStalkBranch3.setRotation (70);
         // Cucumber plant brach 3
-        sf::RectangleShape CucumberStalkBranch4 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        sf::RectangleShape CucumberStalkBranch4 {sf::Vector2f{5.0, -cucumber_plant.getHeight()/2}};
         CucumberStalkBranch4.setPosition(230, PosCucumberStalkBranch4);
         CucumberStalkBranch4.setTexture(pTexture);
         CucumberStalkBranch4.setRotation (-70);
         // Cucumber plant brach 4
-        sf::RectangleShape CucumberStalkBranch5 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        sf::RectangleShape CucumberStalkBranch5 {sf::Vector2f{5.0, -cucumber_plant.getHeight()/2}};
         CucumberStalkBranch5.setPosition(230, PosCucumberStalkBranch5);
         CucumberStalkBranch5.setTexture(pTexture);
         CucumberStalkBranch5.setRotation (60);
@@ -291,7 +286,7 @@ int main(int argc, char const *argv[])
             
             if(ImGui::Button("Change")){
                 putSoil=true;
-                simulateHours(my_plant, my_watertank, my_greenhouse, 1, 0.4, plantsAmount, putSoil);
+                simulateHours(tomato_plant1, my_watertank, my_greenhouse, 1, 0.4, plantsAmount, putSoil);
                 putSoil=false;
             }
             
@@ -327,100 +322,100 @@ int main(int argc, char const *argv[])
             }
             if(ImGui::Button("Wait one day")){
                 // Tomato plant 1
-                simulateHours(my_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
-                tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
-                    PosTomatoStalkBranch1 = (- my_plant.getHeight()/1.5) + 289;
-                    PosTomatoStalkBranch2 = (- my_plant.getHeight()/2) + 289;
-                    PosTomatoStalkBranch3 = (- my_plant.getHeight()/4) + 289;
+                simulateHours(tomato_plant1, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
+                tomatoStalk.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()});
+                    PosTomatoStalkBranch1 = (- tomato_plant1.getHeight()/1.5) + 289;
+                    PosTomatoStalkBranch2 = (- tomato_plant1.getHeight()/2) + 289;
+                    PosTomatoStalkBranch3 = (- tomato_plant1.getHeight()/4) + 289;
                     tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
                         tomatoesSprite.setPosition(187 , PosTomatoStalkBranch1 - PosTomatoStalkBranch1 / 70);
-                        tomatoesSprite.setScale(my_plant.getHeight()/3000, my_plant.getHeight()/3000);
+                        tomatoesSprite.setScale(tomato_plant1.getHeight()/3000, tomato_plant1.getHeight()/3000);
                     tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
                     tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
-                    tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/2});
-                    tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
-                    tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
+                    tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()/2});
+                    tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()/3});
+                    tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()/3});
 
                 // Tomato plant 2
-                simulateHours(my_plant2, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
-                tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
-                PosTomatoStalk2Branch1 = (-my_plant2.getHeight()/1.5)+my_plant2Position;
-                PosTomatoStalk2Branch2 = (-my_plant2.getHeight()/2)+my_plant2Position;
-                PosTomatoStalk2Branch3 = (-my_plant2.getHeight()/4)+my_plant2Position;
+                simulateHours(tomato_plant2, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
+                tomatoStalk2.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()});
+                PosTomatoStalk2Branch1 = (-tomato_plant2.getHeight()/1.5)+my_plant2Position;
+                PosTomatoStalk2Branch2 = (-tomato_plant2.getHeight()/2)+my_plant2Position;
+                PosTomatoStalk2Branch3 = (-tomato_plant2.getHeight()/4)+my_plant2Position;
                 tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
                 tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
                 tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
-                tomatoStalk2Branch1.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
-                tomatoStalk2Branch2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/2});
-                tomatoStalk2Branch3.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
+                tomatoStalk2Branch1.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()/3});
+                tomatoStalk2Branch2.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()/2});
+                tomatoStalk2Branch3.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()/3});
 
                 // Cucumber plant
-                simulateHours(my_cucumber_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
-                CucumberStalk.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()});
-                PosCucumberStalkBranch1 = (-my_cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch2 = (-my_cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch3 = (-my_cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch4 = (-my_cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch5 = (-my_cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
+                simulateHours(cucumber_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
+                CucumberStalk.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()});
+                PosCucumberStalkBranch1 = (-cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch2 = (-cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch3 = (-cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch4 = (-cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch5 = (-cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
                 CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
                 CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
                 CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
                 CucumberStalkBranch4.setPosition(230, PosCucumberStalkBranch4);
                 CucumberStalkBranch5.setPosition(230, PosCucumberStalkBranch5);
-                CucumberStalkBranch1.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
-                CucumberStalkBranch2.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
-                CucumberStalkBranch3.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
-                CucumberStalkBranch4.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
-                CucumberStalkBranch5.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
+                CucumberStalkBranch1.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/3});
+                CucumberStalkBranch2.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/2});
+                CucumberStalkBranch3.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/3});
+                CucumberStalkBranch4.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/2});
+                CucumberStalkBranch5.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/3});
 
                 totalHours = totalHours + 24;
             }
 
             if(ImGui::Button("Wait the hours")){
                 // Tomato plant
-                simulateHours(my_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
-                tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
-                PosTomatoStalkBranch1 = (-my_plant.getHeight()/1.5)+my_plantPosition;
-                PosTomatoStalkBranch2 = (-my_plant.getHeight()/2)+my_plantPosition;
-                PosTomatoStalkBranch3 = (-my_plant.getHeight()/4)+my_plantPosition;
+                simulateHours(tomato_plant1, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
+                tomatoStalk.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()});
+                PosTomatoStalkBranch1 = (-tomato_plant1.getHeight()/1.5)+my_plantPosition;
+                PosTomatoStalkBranch2 = (-tomato_plant1.getHeight()/2)+my_plantPosition;
+                PosTomatoStalkBranch3 = (-tomato_plant1.getHeight()/4)+my_plantPosition;
                 tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
                 tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
                 tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
-                tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/2});
-                tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
-                tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
+                tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()/2});
+                tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()/3});
+                tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()/3});
 
                 // Tomato plant 2
-                simulateHours(my_plant2, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
-                tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
-                PosTomatoStalk2Branch1 = (-my_plant2.getHeight()/1.5)+my_plant2Position;
-                PosTomatoStalk2Branch2 = (-my_plant2.getHeight()/2)+my_plant2Position;
-                PosTomatoStalk2Branch3 = (-my_plant2.getHeight()/4)+my_plant2Position;
+                simulateHours(tomato_plant2, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
+                tomatoStalk2.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()});
+                PosTomatoStalk2Branch1 = (-tomato_plant2.getHeight()/1.5)+my_plant2Position;
+                PosTomatoStalk2Branch2 = (-tomato_plant2.getHeight()/2)+my_plant2Position;
+                PosTomatoStalk2Branch3 = (-tomato_plant2.getHeight()/4)+my_plant2Position;
                 tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
                 tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
                 tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
-                tomatoStalk2Branch1.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
-                tomatoStalk2Branch2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/2});
-                tomatoStalk2Branch3.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
+                tomatoStalk2Branch1.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()/3});
+                tomatoStalk2Branch2.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()/2});
+                tomatoStalk2Branch3.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()/3});
 
                 // Cucumber plant
-                simulateHours(my_cucumber_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
-                CucumberStalk.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()});
-                PosCucumberStalkBranch1 = (-my_cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch2 = (-my_cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch3 = (-my_cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch4 = (-my_cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch5 = (-my_cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
+                simulateHours(cucumber_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
+                CucumberStalk.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()});
+                PosCucumberStalkBranch1 = (-cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch2 = (-cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch3 = (-cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch4 = (-cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch5 = (-cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
                 CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
                 CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
                 CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
                 CucumberStalkBranch4.setPosition(230, PosCucumberStalkBranch4);
                 CucumberStalkBranch5.setPosition(230, PosCucumberStalkBranch5);
-                CucumberStalkBranch1.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
-                CucumberStalkBranch2.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
-                CucumberStalkBranch3.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
-                CucumberStalkBranch4.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
-                CucumberStalkBranch5.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
+                CucumberStalkBranch1.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/3});
+                CucumberStalkBranch2.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/2});
+                CucumberStalkBranch3.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/3});
+                CucumberStalkBranch4.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/2});
+                CucumberStalkBranch5.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()/3});
 
                 totalHours = totalHours + hoursToWait;
             }

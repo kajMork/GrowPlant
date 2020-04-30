@@ -22,5 +22,4 @@ private:
     // Since we need float values, and rand() only returns integer values, a cheap and easy fix is needed
     float currentRand = rand() % 300 + 100;
     float growth_rate{currentRand / 1200};
-    //rand() % 5 + 1
 };

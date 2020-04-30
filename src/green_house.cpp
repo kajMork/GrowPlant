@@ -3,11 +3,11 @@
 #include"../include/water_tank.h"
 
 // Do so it actoully gets water from watertank.
-void Greenhouse::pumpWater(float amount){
+void GreenHouse::pumpWater(float amount){
 
 };
 
-void Greenhouse::adjustLight(float amount){
+void GreenHouse::adjustLight(float amount){
     if(amount > LEDLightMaxValue)
         LEDLightValue = LEDLightMaxValue;
     else

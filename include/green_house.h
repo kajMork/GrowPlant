@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-class Greenhouse
+class GreenHouse
 {
     private:
         float LEDLightValue;

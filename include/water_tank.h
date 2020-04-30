@@ -1,6 +1,6 @@
 #pragma once
 
-class Watertank
+class WaterTank
 {
     private:
     float waterAmount = 1000;
