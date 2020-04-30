@@ -283,19 +283,16 @@ int main(int argc, char const *argv[])
             // Soil changing
             ImGui::Begin("Soil");
             std::string strsoilMoisture = "Soilmoisture: " + std::to_string(my_greenhouse.getSoilMoisture());
-            std::string strSoilChange = "Change soil: " + strChangeSoil;
+            std::string strSoilChange = "Here you can change \nsoil and plants.\n\nREMEMBER to change the \nsoil and plants when \nyou start the simulation.";
             const char *cc_SoilMoisture = strsoilMoisture.c_str();
             const char *cc_SoilChange = strSoilChange.c_str();
             ImGui::TextUnformatted(cc_SoilMoisture);
             ImGui::TextUnformatted(cc_SoilChange);
-
-            if(ImGui::Button("Yes")){
+            
+            if(ImGui::Button("Change")){
                 putSoil=true;
-                strChangeSoil = "Yes";
-            }
-            if(ImGui::Button("No")){
+                simulateHours(my_plant, my_watertank, my_greenhouse, 1, 0.4, plantsAmount, putSoil);
                 putSoil=false;
-                strChangeSoil = "No";
             }
             
             ImGui::End();

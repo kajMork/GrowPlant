@@ -10,7 +10,7 @@ public:
     float getHeight() override {return height;};
     int getNumCucumbers(){return num_cucumbers;};
 
-    void grow(int days, bool newSoil, double soilMoisture) override;
+    void grow(int hours, bool newSoil, double soilMoisture) override;
 
     int getMaxHeight() override {return max_Height;};
 private:

@@ -1,7 +1,7 @@
 #include"../include/tomato_plant.h"
 #include"../include/water_tank.h"
 
-void TomatoPlant::grow(int days, bool newSoil, double soilMoisture)
+void TomatoPlant::grow(int hours, bool newSoil, double soilMoisture)
 {
     if (newSoil==true)
     {
@@ -9,6 +9,6 @@ void TomatoPlant::grow(int days, bool newSoil, double soilMoisture)
     }
     else
     {
-        height = height + days * growth_rate * (soilMoisture/40);
+        height = height + hours * growth_rate * (soilMoisture/40);
     }
 }
