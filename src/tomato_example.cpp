@@ -12,33 +12,39 @@
 #include <stdlib.h>
 
 void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_greenhouse, int hours, int waterNeedAmount, int plantsAmount, bool putSoil){
-        for (int i = 0; i < hours; i++)
+    for (int i = 0; i <= hours; i++)
+    {
+        if (hours!=0)
         {
-            if (a_plant.getHeight() <= a_plant.getMaxHeight())
-            {
-                waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 20));
-            }
-            
-            if(waterTank.getWaterAmount() <= 0)
-                waterTank.empty = true;
-            else
-                waterTank.empty = false;
-            
-            if(a_plant.getHeight() <= a_plant.getMaxHeight())
-            {
-                a_greenhouse.MoistureProcent(putSoil, waterNeedAmount + (a_plant.getHeight() / 20));
-                if (a_greenhouse.getSoilMoisture()>7)
-                {
-                   a_plant.grow(1, putSoil, a_greenhouse);
-                }
-            }
-            else
-            break;
+            a_greenhouse.MoistureProcent(putSoil, 0);
         }
+
+        if (a_greenhouse.getSoilMoisture()<=16 && waterTank.getWaterAmount()>0)
+        {
+            waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 5));
+            a_greenhouse.MoistureProcent(putSoil, waterNeedAmount + (a_plant.getHeight() / 20));
+        }
+        
+        if(waterTank.getWaterAmount() <= 0)
+        {
+            waterTank.empty = true;
+        }
+        else
+        {
+            waterTank.empty = false;
+        }
+        
+        if(a_plant.getHeight() <= a_plant.getMaxHeight() && a_greenhouse.getSoilMoisture()>7)
+        {
+            a_plant.grow(1, putSoil, a_greenhouse.getSoilMoisture());
+        }
+        else
+        break;
+    }
 }
 
 void simulateOneDay(PlantBase &a_plant, bool putSoil, Greenhouse &a_greenhouse){
-    a_plant.grow(1, putSoil, a_greenhouse);
+    a_plant.grow(1, putSoil, a_greenhouse.getSoilMoisture());
 }
 
 int getClock (int totalHours)
@@ -64,53 +70,100 @@ int main(int argc, char const *argv[])
     CucumberPlant my_cucumber_plant;
     Greenhouse my_greenhouse;
     Watertank my_watertank;
-
+    
     std::cout << "First plant: " << my_plant.getGrowthRate() << std::endl;
     std::cout << "Second plant: " << my_plant2.getGrowthRate() << std::endl;
     std::cout << "Third plant: " << my_plant3.getGrowthRate() << std::endl;
 
     // Variables
-    int time = 8;
-    int hoursToWait = 1;
-    int totalHours = 0;
-    int plantsAmount = 3;
-    bool putSoil=false;
+        
+        //Starting time of simulation
+        int time = 8;
+        
+        //Starting hours to wait of simulation
+        int hoursToWait = 1;
+        
+        //Starting total hours spend of simulation
+        int totalHours = 0;
+        
+        //Starting size of visual size of plant in simulation
+        int plantsAmount = 2;
+        
+        //Starting change soil option in simulation
+        bool putSoil=false;
+        std::string strChangeSoil = "No";
+        
+        //Starting position of plants and branches in simulation
+        
+        //// Tomato plant 1
+        //Tomato plant start position y-kooridnate
+        int my_plantPosition = 289;
+            //Tomato branch start position y-kooridnate
+            double PosTomatoStalkBranch1 = my_plantPosition;
+            double PosTomatoStalkBranch2 = my_plantPosition;
+            double PosTomatoStalkBranch3 = my_plantPosition;
 
+        //// Tomato plant 2
+        int my_plant2Position = 288;
+        double PosTomatoStalk2Branch1 = my_plant2Position;
+        double PosTomatoStalk2Branch2 = my_plant2Position;
+        double PosTomatoStalk2Branch3 = my_plant2Position;
+
+        //// Cucumber plant
+        int my_cucumber_plantPosition = 488;
+        double PosCucumberStalkBranch1 = my_cucumber_plantPosition;
+        double PosCucumberStalkBranch2 = my_cucumber_plantPosition;
+        double PosCucumberStalkBranch3 = my_cucumber_plantPosition;
+        double PosCucumberStalkBranch4 = my_cucumber_plantPosition;
+        double PosCucumberStalkBranch5 = my_cucumber_plantPosition;
+        
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
 
-    // Texture rendering
+     // Texture rendering
     sf::Texture greenhouseTex;
-    if(!greenhouseTex.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\Drivhus_2_v5.png")){
+    if(!greenhouseTex.loadFromFile("..\\pictures\\Drivhus_2_v5.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     greenhouseTex.setSmooth(true);
 
+    sf::Texture tomatoes;
+    if(!tomatoes.loadFromFile("..\\pictures\\tomatoes.jpg")){
+        std::cout << "Couldn't load textures, check directory." << std::endl;
+    }
+    tomatoes.setSmooth(true);
+
+    sf::Texture cucumber;
+    if(!cucumber.loadFromFile("..\\pictures\\Cucumber.jpg")){
+        std::cout << "Couldn't load textures, check directory." << std::endl;
+    }
+    cucumber.setSmooth(true);
+
     sf::Texture stalk;
-    if(!stalk.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\stalk.jpg")){
+    if(!stalk.loadFromFile("..\\pictures\\stalk.jpg")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
 
     sf::Texture sun;
-    if(!sun.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\SunV3.png")){
+    if(!sun.loadFromFile("..\\pictures\\SunV3.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     sun.setSmooth(true);
 
     sf::Texture terase;
-    if(!terase.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\TeraseV2.png")){
+    if(!terase.loadFromFile("..\\pictures\\TeraseV2.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     terase.setSmooth(true);
 
     sf::Texture sky;
-    if(!sky.loadFromFile("C:\\Users\\Kaspe\\Aalborg Universitet\\Kasper personlig\\Struktureret system- og produktudvikling (SSP) (ROB2) - AAL - F20\\GrowPlant\\pictures\\Sky.png")){
+    if(!sky.loadFromFile("..\\pictures\\Sky.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
-    stalk.setSmooth(true);
+    sky.setSmooth(true);
     const sf::Texture *pTexture = &stalk;
 
     sf::Sprite greenhouseSprite;
@@ -121,7 +174,6 @@ int main(int argc, char const *argv[])
     sf::Sprite sunSprite;
     sunSprite.setTexture(sun);
     sunSprite.setScale(0.4, 0.4);
-    
 
     sf::Sprite teraseSprite;
     teraseSprite.setTexture(terase);
@@ -136,20 +188,73 @@ int main(int argc, char const *argv[])
     // sfml clock for updating
     sf::Clock deltaClock;
 
-    // Tomato plant
+    // Tomato plant 1
     sf::RectangleShape tomatoStalk {sf::Vector2f{5.0, -my_plant.getHeight()}};
-    tomatoStalk.setPosition(181, 289);
+    tomatoStalk.setPosition(181, my_plantPosition);
     tomatoStalk.setTexture(pTexture);
-    
+        // Tomato plant brach 1
+        sf::RectangleShape tomatoStalkBranch1 {sf::Vector2f{5.0, -my_plant.getHeight()/2}};
+        tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
+        tomatoStalkBranch1.setTexture(pTexture);
+        tomatoStalkBranch1.setRotation (70);
+        // Tomato plant brach 2
+        sf::RectangleShape tomatoStalkBranch2 {sf::Vector2f{5.0, -my_plant.getHeight()/2}};
+        tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
+        tomatoStalkBranch2.setTexture(pTexture);
+        tomatoStalkBranch2.setRotation (-70);
+        // Tomato plant brach 3
+        sf::RectangleShape tomatoStalkBranch3 {sf::Vector2f{5.0, -my_plant.getHeight()/2}};
+        tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
+        tomatoStalkBranch3.setTexture(pTexture);
+        tomatoStalkBranch3.setRotation (70);
+
     // Tomato plant 2
     sf::RectangleShape tomatoStalk2 {sf::Vector2f{5.0, -my_plant2.getHeight()}};
-    tomatoStalk2.setPosition(284, 288);
+    tomatoStalk2.setPosition(284, my_plant2Position);
     tomatoStalk2.setTexture(pTexture);
+        sf::RectangleShape tomatoStalk2Branch1 {sf::Vector2f{5.0, -my_plant2.getHeight()/2}};
+        tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
+        tomatoStalk2Branch1.setTexture(pTexture);
+        tomatoStalk2Branch1.setRotation (70);
+        // Tomato plant brach 2
+        sf::RectangleShape tomatoStalk2Branch2 {sf::Vector2f{5.0, -my_plant2.getHeight()/2}};
+        tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
+        tomatoStalk2Branch2.setTexture(pTexture);
+        tomatoStalk2Branch2.setRotation (-70);
+        // Tomato plant brach 3
+        sf::RectangleShape tomatoStalk2Branch3 {sf::Vector2f{5.0, -my_plant2.getHeight()/2}};
+        tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
+        tomatoStalk2Branch3.setTexture(pTexture);
+        tomatoStalk2Branch3.setRotation (70);
 
-    // Tomato plant 3
-    sf::RectangleShape tomatoStalk3 {sf::Vector2f{5.0, -my_plant3.getHeight()}};
-    tomatoStalk3.setPosition(174, 488);
-    tomatoStalk3.setTexture(pTexture);
+    // Cucumber plant
+    sf::RectangleShape CucumberStalk {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()}};
+    CucumberStalk.setPosition(230, my_cucumber_plantPosition);
+    CucumberStalk.setTexture(pTexture);
+    sf::RectangleShape CucumberStalkBranch1 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
+        CucumberStalkBranch1.setTexture(pTexture);
+        CucumberStalkBranch1.setRotation (90);
+        // Cucumber plant brach 1
+        sf::RectangleShape CucumberStalkBranch2 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
+        CucumberStalkBranch2.setTexture(pTexture);
+        CucumberStalkBranch2.setRotation (-90);
+        // Cucumber plant brach 2
+        sf::RectangleShape CucumberStalkBranch3 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
+        CucumberStalkBranch3.setTexture(pTexture);
+        CucumberStalkBranch3.setRotation (70);
+        // Cucumber plant brach 3
+        sf::RectangleShape CucumberStalkBranch4 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        CucumberStalkBranch4.setPosition(230, PosCucumberStalkBranch4);
+        CucumberStalkBranch4.setTexture(pTexture);
+        CucumberStalkBranch4.setRotation (-70);
+        // Cucumber plant brach 4
+        sf::RectangleShape CucumberStalkBranch5 {sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2}};
+        CucumberStalkBranch5.setPosition(230, PosCucumberStalkBranch5);
+        CucumberStalkBranch5.setTexture(pTexture);
+        CucumberStalkBranch5.setRotation (60);
 
     while (window.isOpen()){
 
@@ -157,30 +262,31 @@ int main(int argc, char const *argv[])
 
         // Break the while loop if we close the window
         while (window.pollEvent(event))
-        {    
+        {
             ImGui::SFML::ProcessEvent(event);
             if(event.type == sf::Event::Closed) window.close();
         }
 
         ImGui::SFML::Update(window, deltaClock.restart());
 
-    // UI SEGMENTS //
+        // UI SEGMENTS //
 
             // Soil changing
             ImGui::Begin("Soil");
             std::string strsoilMoisture = "Soilmoisture: " + std::to_string(my_greenhouse.getSoilMoisture());
+            std::string strSoilChange = "Change soil: " + strChangeSoil;
             const char *cc_SoilMoisture = strsoilMoisture.c_str();
-            ImGui::TextUnformatted(cc_SoilMoisture);
-
-            std::string strSoilChange = "Change soil: " + std::to_string(putSoil);
             const char *cc_SoilChange = strSoilChange.c_str();
+            ImGui::TextUnformatted(cc_SoilMoisture);
             ImGui::TextUnformatted(cc_SoilChange);
 
             if(ImGui::Button("Yes")){
                 putSoil=true;
+                strChangeSoil = "Yes";
             }
             if(ImGui::Button("No")){
                 putSoil=false;
+                strChangeSoil = "No";
             }
             
             ImGui::End();
@@ -203,7 +309,6 @@ int main(int argc, char const *argv[])
             ImGui::TextUnformatted(cc_TotalDays);
             ImGui::TextUnformatted(cc_TotalHours);
             ImGui::TextUnformatted(cc_Clock);
-            
 
             if(ImGui::Button("Remove hour")){
                 hoursToWait--;
@@ -212,33 +317,99 @@ int main(int argc, char const *argv[])
                 hoursToWait++;
             }
             if(ImGui::Button("Wait one day")){
+                // Tomato plant 1
                 simulateHours(my_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
+                PosTomatoStalkBranch1 = (-my_plant.getHeight()/1.5)+289;
+                PosTomatoStalkBranch2 = (-my_plant.getHeight()/2)+289;
+                PosTomatoStalkBranch3 = (-my_plant.getHeight()/4)+289;
+                tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
+                tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
+                tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
+                tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/2});
+                tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
+                tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
 
-                // Second TomatoPlant
+                // Tomato plant 2
                 simulateHours(my_plant2, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
+                PosTomatoStalk2Branch1 = (-my_plant2.getHeight()/1.5)+my_plant2Position;
+                PosTomatoStalk2Branch2 = (-my_plant2.getHeight()/2)+my_plant2Position;
+                PosTomatoStalk2Branch3 = (-my_plant2.getHeight()/4)+my_plant2Position;
+                tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
+                tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
+                tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
+                tomatoStalk2Branch1.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
+                tomatoStalk2Branch2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/2});
+                tomatoStalk2Branch3.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
 
-                // Third TomatoPlant
-                simulateHours(my_plant3, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
-                tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+                // Cucumber plant
+                simulateHours(my_cucumber_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
+                CucumberStalk.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()});
+                PosCucumberStalkBranch1 = (-my_cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch2 = (-my_cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch3 = (-my_cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch4 = (-my_cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch5 = (-my_cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
+                CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
+                CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
+                CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
+                CucumberStalkBranch4.setPosition(230, PosCucumberStalkBranch4);
+                CucumberStalkBranch5.setPosition(230, PosCucumberStalkBranch5);
+                CucumberStalkBranch1.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
+                CucumberStalkBranch2.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
+                CucumberStalkBranch3.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
+                CucumberStalkBranch4.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
+                CucumberStalkBranch5.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
 
                 totalHours = totalHours + 24;
-                
             } 
 
             if(ImGui::Button("Wait the hours")){
-                // First TomatoPlant
-                simulateHours(my_plant, my_watertank, my_greenhouse,hoursToWait, 0.4, plantsAmount, putSoil);
+                // Tomato plant
+                simulateHours(my_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
                 tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
+                PosTomatoStalkBranch1 = (-my_plant.getHeight()/1.5)+my_plantPosition;
+                PosTomatoStalkBranch2 = (-my_plant.getHeight()/2)+my_plantPosition;
+                PosTomatoStalkBranch3 = (-my_plant.getHeight()/4)+my_plantPosition;
+                tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
+                tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
+                tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
+                tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/2});
+                tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
+                tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
 
-                // Second TomatoPlant
-                simulateHours(my_plant2, my_watertank, my_greenhouse,hoursToWait, 0.4, plantsAmount, putSoil);
+                // Tomato plant 2
+                simulateHours(my_plant2, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
                 tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
+                PosTomatoStalk2Branch1 = (-my_plant2.getHeight()/1.5)+my_plant2Position;
+                PosTomatoStalk2Branch2 = (-my_plant2.getHeight()/2)+my_plant2Position;
+                PosTomatoStalk2Branch3 = (-my_plant2.getHeight()/4)+my_plant2Position;
+                tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
+                tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
+                tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
+                tomatoStalk2Branch1.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
+                tomatoStalk2Branch2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/2});
+                tomatoStalk2Branch3.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
 
-                // Third TomatoPlant
-                simulateHours(my_plant3, my_watertank, my_greenhouse,hoursToWait, 0.4, plantsAmount, putSoil);
-                tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+                // Cucumber plant
+                simulateHours(my_cucumber_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
+                CucumberStalk.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()});
+                PosCucumberStalkBranch1 = (-my_cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch2 = (-my_cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch3 = (-my_cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch4 = (-my_cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch5 = (-my_cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
+                CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
+                CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
+                CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
+                CucumberStalkBranch4.setPosition(230, PosCucumberStalkBranch4);
+                CucumberStalkBranch5.setPosition(230, PosCucumberStalkBranch5);
+                CucumberStalkBranch1.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
+                CucumberStalkBranch2.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
+                CucumberStalkBranch3.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
+                CucumberStalkBranch4.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/2});
+                CucumberStalkBranch5.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
 
                 totalHours = totalHours + hoursToWait;
             }
@@ -266,12 +437,10 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            
         }
         //Keep the spritetextures dark from 24:00 to 05:00
         if (getClock(totalHours)>23 && getClock(totalHours)<=5 || getClock(totalHours)>=1 && getClock(totalHours)<=5)
         {
-            
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
@@ -286,12 +455,10 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             window.clear(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
-            
         }
         //Keep the spritetextures light from 08:00 to 19:00
         if(getClock(totalHours)>7 && getClock(totalHours)<=19)
         {
-            
             window.clear(sf::Color::White);
             sunSprite.setColor(sf::Color::White);
             skySprite.setColor(sf::Color::White);
@@ -302,15 +469,27 @@ int main(int argc, char const *argv[])
         double sunYPos = (9450/17)-(500*getClock(totalHours))/17 ;
         sunSprite.setPosition(450,sunYPos);
         
-
         // Draw to screen
         window.draw(skySprite);
         window.draw(sunSprite);
         window.draw(teraseSprite);
         window.draw(greenhouseSprite);
         window.draw(tomatoStalk);
+            window.draw(tomatoStalkBranch1);
+            window.draw(tomatoStalkBranch2);
+            window.draw(tomatoStalkBranch3);
+
         window.draw(tomatoStalk2);
-        window.draw(tomatoStalk3);
+            window.draw(tomatoStalk2Branch1);
+            window.draw(tomatoStalk2Branch2);
+            window.draw(tomatoStalk2Branch3);
+
+        window.draw(CucumberStalk);
+            window.draw(CucumberStalkBranch1);
+            window.draw(CucumberStalkBranch2);
+            window.draw(CucumberStalkBranch3);
+            window.draw(CucumberStalkBranch4);
+            window.draw(CucumberStalkBranch5);
 
         ImGui::SFML::Render(window);
 

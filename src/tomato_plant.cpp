@@ -1,8 +1,7 @@
 #include"../include/tomato_plant.h"
 #include"../include/watertank.h"
-#include"../include/greenhouse.h"
 
-void TomatoPlant::grow(int days, bool newSoil, Greenhouse &a_greenhouse)
+void TomatoPlant::grow(int days, bool newSoil, double soilMoisture)
 {
     if (newSoil==true)
     {
@@ -10,6 +9,6 @@ void TomatoPlant::grow(int days, bool newSoil, Greenhouse &a_greenhouse)
     }
     else
     {
-        height = height + days * growth_rate * (a_greenhouse.getSoilMoisture()/20);
+        height = height + days * growth_rate * (soilMoisture/40);
     }
 }

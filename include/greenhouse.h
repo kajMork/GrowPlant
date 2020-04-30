@@ -1,5 +1,6 @@
 #pragma once
 #include <stdlib.h>
+#include <time.h>
 
 class Greenhouse
 {
@@ -7,7 +8,7 @@ class Greenhouse
         float LEDLightValue;
         const int LEDLightMaxValue = 100;
         int plantSpaces;
-        int soilMoisture=0;
+        double soilMoisture=0;
 
     public:
         float getLEDLightValue(){ return LEDLightValue; };
@@ -16,19 +17,19 @@ class Greenhouse
         void adjustLight(float amount);
         int getSoilMoisture(){ return soilMoisture; };
 
-        void MoistureProcent(bool newSoil, int addedWater)
+        void MoistureProcent(bool newSoil, double addedWater)
         {
             if (newSoil==true)
             {
-               int RandomNumberNewSoil = rand() % 45 + 5;
+               int RandomNumberNewSoil = rand() % 35 + 0;
                soilMoisture = RandomNumberNewSoil;
             }
 
             if (soilMoisture > 0)
             {
-                int numEvpapor = rand() % 2 + 0;
-                
-                soilMoisture = soilMoisture - numEvpapor + addedWater/5;
+                int numEvpapor = rand() % 5 + 1;
+
+                soilMoisture = soilMoisture - numEvpapor/5 + addedWater;
             }
         }
 };
