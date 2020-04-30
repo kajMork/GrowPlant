@@ -67,7 +67,9 @@ int main(int argc, char const *argv[])
     int hoursToWait = 1;
     int totalHours = 0;
     int plantsAmount = 3;
-    int luxSensorValue =0;
+    int luxSensorValue = 0;
+    bool autoLight = true;
+    std::string strAutoLight = "Automatic light";
 
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
@@ -173,7 +175,7 @@ int main(int argc, char const *argv[])
     // UI SEGMENTS //
 
         // Plant simulator controller
-        ImGui::Begin("Controller");
+        ImGui::Begin("Time Controller");
             // Being able to see and change how many Hours the user wants to wait
             // Being able to track total hours and time of the day. 
             std::string strHours = "Hours to wait: " + std::to_string(hoursToWait);
@@ -240,6 +242,32 @@ int main(int argc, char const *argv[])
                 my_watertank.fillUp(1000);
             }
             ImGui::End();
+
+            ImGui::Begin("Light");
+            std::string strLux = "Lux sensor: " + std::to_string(luxSensorValue);
+            std::string strLEDLux = "LED light lux: " + std::to_string(my_greenhouse.getLedlampvalue());
+            std::string strSetting = "Light setting: " + strAutoLight;
+            const char *c_Lux = strLux.c_str();
+            const char *c_LEDLux = strLEDLux.c_str();
+            const char *c_Setting = strSetting.c_str();
+            ImGui::TextUnformatted(c_Lux);
+            ImGui::TextUnformatted(c_LEDLux);
+            ImGui::TextUnformatted(c_Setting);
+
+            if(ImGui::Button("Automatic lights switch")){
+
+                if (autoLight==true)
+                {
+                    strAutoLight = "Lights off";
+                    autoLight=false;
+                }
+                else if (autoLight==false)
+                {
+                    strAutoLight = "Automatic light";
+                    autoLight=true;
+                }
+            }
+            ImGui::End();
             
         //Update spritetextures color for the time of the day.
         double rgb_codenight;
@@ -254,21 +282,20 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-
-            my_greenhouse.adjustLight(100);
-            
+            luxSensorValue = 800-(getClock(totalHours)-20)*70;
+            my_greenhouse.adjustLight(luxSensorValue);
+            lightSprite.setColor(sf::Color(255,255,255,0+(getClock(totalHours)-20)*10));
         }
         //Keep the spritetextures dark from 24:00 to 05:00
         if (getClock(totalHours)>23 && getClock(totalHours)<=5 || getClock(totalHours)>=1 && getClock(totalHours)<=5)
         {
-            
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            
-
-            my_greenhouse.adjustLight(100);
+            luxSensorValue = 0;
+            my_greenhouse.adjustLight(luxSensorValue);
+            lightSprite.setColor(sf::Color(255,255,255,100));
         }
         //Daylight appears from 06:00 to 08:00
         if (getClock(totalHours)>5 && getClock(totalHours)<8)
@@ -279,38 +306,25 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             window.clear(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
-
-            my_greenhouse.adjustLight(200);
-            
+            luxSensorValue = 0+(getClock(totalHours)-20)*70;
+            my_greenhouse.adjustLight(luxSensorValue);
+            lightSprite.setColor(sf::Color(255,255,255,100-(getClock(totalHours)-20)*4));
         }
         //Keep the spritetextures light from 08:00 to 19:00
         if(getClock(totalHours)>7 && getClock(totalHours)<=19)
         {
-            
             window.clear(sf::Color::White);
             sunSprite.setColor(sf::Color::White);
             skySprite.setColor(sf::Color::White);
             teraseSprite.setColor(sf::Color::White);
-
-            my_greenhouse.adjustLight(500);
+            luxSensorValue = 800;
+            my_greenhouse.adjustLight(luxSensorValue);
         }
-
-
-        if (my_greenhouse.getLedlampvalue()==700)       
-        {
-            int rgbLight= my_greenhouse.getLedlampvalue
-            lightSprite.setColor(sf::Color(34,34,34));
-
-        }
-
-
-        
 
         //Update the suns position depending on the time of the day
         //sunYPos is calculated with the linear formular: 500x+17y=9450, where x = getClock().
-        double sunYPos = (9450/17)-(500*getClock(totalHours))/17 ;
+        double sunYPos = (9450/17)-(500*getClock(totalHours))/17;
         sunSprite.setPosition(450,sunYPos);
-        
 
         // Draw to screen
         window.draw(skySprite);

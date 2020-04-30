@@ -4,7 +4,7 @@ class Greenhouse
 {
     private:
     const int LEDLightwishedValue = 800;
-    float LEDlamp;
+    float LEDlamp = 0;
     int plantSpaces;
 
     public:
