@@ -11,6 +11,6 @@ class Greenhouse
 
     int getPlantSpacesAvailable(){ return plantSpaces; };
     void pumpWater(float amount);
-    void adjustLight(float luxSensorValue,Greenhouse &a_greenhouse);
+    void adjustLight(float luxSensorValue);
     float getLedlampvalue(){return LEDlamp; };
 };

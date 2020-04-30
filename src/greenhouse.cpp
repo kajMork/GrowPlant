@@ -7,20 +7,16 @@ void Greenhouse::pumpWater(float amount){
 
 };
 
-void Greenhouse::adjustLight(float luxSensorValue,Greenhouse &a_greenhouse){
+void Greenhouse::adjustLight(float luxSensorValue){
      int lowLightValue=0;
      
      if (luxSensorValue < LEDLightwishedValue)
      {
-        luxSensorValue=1;
+        LEDlamp=LEDLightwishedValue-luxSensorValue;
      }
      
            
-      while (luxSensorValue<LEDLightwishedValue)
-      {
-         LEDlamp 
-
-      }
+      
           
 
 };
