@@ -290,7 +290,7 @@ int main(int argc, char const *argv[])
             }
             else if (autoLight!=true)
             {
-                my_greenhouse.adjustLight(luxSensorValue);
+                my_greenhouse.adjustLight(800);
                 lightSprite.setColor(sf::Color(255,255,255,0));
             }
         }
@@ -309,7 +309,7 @@ int main(int argc, char const *argv[])
             }
             else if (autoLight!=true)
             {
-                my_greenhouse.adjustLight(luxSensorValue);
+                my_greenhouse.adjustLight(800);
                 lightSprite.setColor(sf::Color(255,255,255,0));
             }
         }
@@ -331,7 +331,7 @@ int main(int argc, char const *argv[])
             }
             else if (autoLight!=true)
             {
-                my_greenhouse.adjustLight(luxSensorValue);
+                my_greenhouse.adjustLight(800);
                 lightSprite.setColor(sf::Color(255,255,255,0));
             }
         }
@@ -351,7 +351,7 @@ int main(int argc, char const *argv[])
             }
             else if (autoLight!=true)
             {
-                my_greenhouse.adjustLight(luxSensorValue);
+                my_greenhouse.adjustLight(800);
                 lightSprite.setColor(sf::Color(255,255,255,0));
             }
         }
