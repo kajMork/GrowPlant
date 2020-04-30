@@ -25,7 +25,7 @@ class Greenhouse
                soilMoisture = RandomNumberNewSoil;
             }
 
-            if (soilMoisture > 0)
+            if (soilMoisture > 2)
             {
                 int numEvpapor = rand() % 5 + 1;
 

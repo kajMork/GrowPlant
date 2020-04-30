@@ -1,6 +1,6 @@
 #pragma once
-#include"../include/greenhouse.h"
-#include"../include/watertank.h"
+#include"../include/green_house.h"
+#include"../include/water_tank.h"
 
 // Do so it actoully gets water from watertank.
 void Greenhouse::pumpWater(float amount){
