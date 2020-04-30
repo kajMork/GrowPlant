@@ -38,6 +38,10 @@ void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_green
         {
             a_plant.grow(1, putSoil, a_greenhouse.getSoilMoisture());
         }
+        else if (putSoil==true)
+        {
+            a_plant.grow(1, putSoil, a_greenhouse.getSoilMoisture());
+        }
         else
         break;
     }
@@ -100,6 +104,8 @@ int main(int argc, char const *argv[])
         int my_plantPosition = 289;
             //Tomato branch start position y-kooridnate
             double PosTomatoStalkBranch1 = my_plantPosition;
+                double PosTomatoTomatoStalkBranch1 = my_plantPosition;
+                double sizeTomatoes = 0.00;
             double PosTomatoStalkBranch2 = my_plantPosition;
             double PosTomatoStalkBranch3 = my_plantPosition;
 
@@ -129,42 +135,42 @@ int main(int argc, char const *argv[])
     }
     greenhouseTex.setSmooth(true);
 
-    sf::Texture tomatoes;
-    if(!tomatoes.loadFromFile("..\\pictures\\tomatoes.jpg")){
+    sf::Texture tomatoesTex;
+    if(!tomatoesTex.loadFromFile("..\\pictures\\tomatoes.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
-    tomatoes.setSmooth(true);
+    tomatoesTex.setSmooth(true);
 
-    sf::Texture cucumber;
-    if(!cucumber.loadFromFile("..\\pictures\\Cucumber.jpg")){
+    sf::Texture cucumberTex;
+    if(!cucumberTex.loadFromFile("..\\pictures\\Cucumber.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
-    cucumber.setSmooth(true);
+    cucumberTex.setSmooth(true);
 
-    sf::Texture stalk;
-    if(!stalk.loadFromFile("..\\pictures\\stalk.jpg")){
+    sf::Texture stalkTex;
+    if(!stalkTex.loadFromFile("..\\pictures\\stalk.jpg")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
-    stalk.setSmooth(true);
+    stalkTex.setSmooth(true);
 
-    sf::Texture sun;
-    if(!sun.loadFromFile("..\\pictures\\SunV3.png")){
+    sf::Texture sunTex;
+    if(!sunTex.loadFromFile("..\\pictures\\SunV3.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
-    sun.setSmooth(true);
+    sunTex.setSmooth(true);
 
-    sf::Texture terase;
-    if(!terase.loadFromFile("..\\pictures\\TeraseV2.png")){
+    sf::Texture teraseTex;
+    if(!teraseTex.loadFromFile("..\\pictures\\TeraseV2.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
-    terase.setSmooth(true);
+    teraseTex.setSmooth(true);
 
     sf::Texture sky;
     if(!sky.loadFromFile("..\\pictures\\Sky.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     sky.setSmooth(true);
-    const sf::Texture *pTexture = &stalk;
+    const sf::Texture *pTexture = &stalkTex;
 
     sf::Sprite greenhouseSprite;
     greenhouseSprite.setTexture(greenhouseTex);
@@ -172,11 +178,11 @@ int main(int argc, char const *argv[])
     greenhouseSprite.setScale(0.8, 0.8);
 
     sf::Sprite sunSprite;
-    sunSprite.setTexture(sun);
+    sunSprite.setTexture(sunTex);
     sunSprite.setScale(0.4, 0.4);
 
     sf::Sprite teraseSprite;
-    teraseSprite.setTexture(terase);
+    teraseSprite.setTexture(teraseTex);
     teraseSprite.setPosition(-100,-100);
     teraseSprite.setScale(1, 1);
 
@@ -197,6 +203,11 @@ int main(int argc, char const *argv[])
         tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
         tomatoStalkBranch1.setTexture(pTexture);
         tomatoStalkBranch1.setRotation (70);
+            sf::Sprite tomatoesSprite;
+            tomatoesSprite.setTexture(tomatoesTex);
+            tomatoesSprite.setPosition(my_plantPosition,my_plantPosition);
+            tomatoesSprite.setScale(sizeTomatoes, sizeTomatoes);
+
         // Tomato plant brach 2
         sf::RectangleShape tomatoStalkBranch2 {sf::Vector2f{5.0, -my_plant.getHeight()/2}};
         tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
@@ -207,7 +218,7 @@ int main(int argc, char const *argv[])
         tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
         tomatoStalkBranch3.setTexture(pTexture);
         tomatoStalkBranch3.setRotation (70);
-
+    
     // Tomato plant 2
     sf::RectangleShape tomatoStalk2 {sf::Vector2f{5.0, -my_plant2.getHeight()}};
     tomatoStalk2.setPosition(284, my_plant2Position);
@@ -320,15 +331,17 @@ int main(int argc, char const *argv[])
                 // Tomato plant 1
                 simulateHours(my_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
-                PosTomatoStalkBranch1 = (-my_plant.getHeight()/1.5)+289;
-                PosTomatoStalkBranch2 = (-my_plant.getHeight()/2)+289;
-                PosTomatoStalkBranch3 = (-my_plant.getHeight()/4)+289;
-                tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
-                tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
-                tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
-                tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/2});
-                tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
-                tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
+                    PosTomatoStalkBranch1 = (- my_plant.getHeight()/1.5) + 289;
+                    PosTomatoStalkBranch2 = (- my_plant.getHeight()/2) + 289;
+                    PosTomatoStalkBranch3 = (- my_plant.getHeight()/4) + 289;
+                    tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
+                        tomatoesSprite.setPosition(187 , PosTomatoStalkBranch1 - PosTomatoStalkBranch1 / 70);
+                        tomatoesSprite.setScale(my_plant.getHeight()/3000, my_plant.getHeight()/3000);
+                    tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
+                    tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
+                    tomatoStalkBranch1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/2});
+                    tomatoStalkBranch2.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
+                    tomatoStalkBranch3.setSize(sf::Vector2f{5.0, -my_plant.getHeight()/3});
 
                 // Tomato plant 2
                 simulateHours(my_plant2, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
@@ -344,7 +357,7 @@ int main(int argc, char const *argv[])
                 tomatoStalk2Branch3.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()/3});
 
                 // Cucumber plant
-                simulateHours(my_cucumber_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
+                simulateHours(my_cucumber_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 CucumberStalk.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()});
                 PosCucumberStalkBranch1 = (-my_cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
                 PosCucumberStalkBranch2 = (-my_cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
@@ -469,6 +482,7 @@ int main(int argc, char const *argv[])
         double sunYPos = (9450/17)-(500*getClock(totalHours))/17 ;
         sunSprite.setPosition(450,sunYPos);
         
+
         // Draw to screen
         window.draw(skySprite);
         window.draw(sunSprite);
@@ -486,6 +500,8 @@ int main(int argc, char const *argv[])
 
         window.draw(CucumberStalk);
             window.draw(CucumberStalkBranch1);
+                window.draw(tomatoesSprite);
+
             window.draw(CucumberStalkBranch2);
             window.draw(CucumberStalkBranch3);
             window.draw(CucumberStalkBranch4);

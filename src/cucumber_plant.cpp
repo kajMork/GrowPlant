@@ -8,6 +8,6 @@ void CucumberPlant::grow(int days, bool newSoil, double soilMoisture) {
     }
     else
     {
-        height = height + days * growth_rate * (soilMoisture/30);
+        height = height + days * growth_rate * (soilMoisture/35);
     }
 }
