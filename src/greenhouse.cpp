@@ -7,9 +7,15 @@ void Greenhouse::pumpWater(float amount){
 
 };
 
-void Greenhouse::adjustLight(float amount){
-    if(amount > LEDLightMaxValue)
-        LEDLightValue = LEDLightMaxValue;
-    else
-        LEDLightValue = amount;
+void Greenhouse::adjustLight(float luxSensorValue){
+     
+      while (luxSensorValue < LEDLightwishedValue)
+      {
+          LEDlamp +20;
+          luxSensorValue +20;
+      }
+          
+}
+
+
 };

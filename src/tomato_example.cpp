@@ -98,6 +98,13 @@ int main(int argc, char const *argv[])
     }
     terase.setSmooth(true);
 
+    sf::Texture light;
+    if(!light.loadFromFile("..\\pictures\\TeraseV2.png")){
+        std::cout << "Couldn't load textures, check directory." << std::endl;
+    }
+    light.setSmooth(true);
+
+
     sf::Texture sky;
     if(!sky.loadFromFile("..\\pictures\\Sky.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
@@ -240,6 +247,8 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+
+            my_greenhouse.adjustLight(100);
             
         }
         //Keep the spritetextures dark from 24:00 to 05:00
@@ -250,6 +259,8 @@ int main(int argc, char const *argv[])
             sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+
+            my_greenhouse.adjustLight(100);
         }
         //Daylight appears from 06:00 to 08:00
         if (getClock(totalHours)>5 && getClock(totalHours)<8)
@@ -260,6 +271,8 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             window.clear(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+
+            my_greenhouse.adjustLight(200);
             
         }
         //Keep the spritetextures light from 08:00 to 19:00
@@ -270,6 +283,8 @@ int main(int argc, char const *argv[])
             sunSprite.setColor(sf::Color::White);
             skySprite.setColor(sf::Color::White);
             teraseSprite.setColor(sf::Color::White);
+
+            my_greenhouse.adjustLight(500);
         }
         //Update the suns position depending on the time of the day
         //sunYPos is calculated with the linear formular: 500x+17y=9450, where x = getClock().

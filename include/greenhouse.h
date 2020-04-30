@@ -3,13 +3,14 @@
 class Greenhouse
 {
     private:
-    float LEDLightValue;
-    const int LEDLightMaxValue = 100;
+    const int LEDLightwishedValue = 800;
+    float LEDlamp;
     int plantSpaces;
 
     public:
-    float getLEDLightValue(){ return LEDLightValue; };
+
     int getPlantSpacesAvailable(){ return plantSpaces; };
     void pumpWater(float amount);
-    void adjustLight(float amount);
+    void adjustLight(float luxSensorValue);
+    float getLedlampvalue(){return LEDlamp; };
 };
