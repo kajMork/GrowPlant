@@ -29,6 +29,7 @@ void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_green
         {
             waterTank.empty = true;
         }
+
         else
         {
             waterTank.empty = false;
@@ -47,13 +48,10 @@ void simulateHours(PlantBase &a_plant, Watertank &waterTank, Greenhouse &a_green
     }
 }
 
-void simulateOneDay(PlantBase &a_plant, bool putSoil, Greenhouse &a_greenhouse){
-    a_plant.grow(1, putSoil, a_greenhouse.getSoilMoisture());
-}
-
 int getClock (int totalHours)
 {   
     int timeclock = totalHours % 24 + 8;
+
     if (timeclock > 24)
     {
         timeclock = timeclock - 24;
@@ -322,7 +320,10 @@ int main(int argc, char const *argv[])
             ImGui::TextUnformatted(cc_Clock);
 
             if(ImGui::Button("Remove hour")){
-                hoursToWait--;
+                if (hoursToWait>1)
+                {
+                    hoursToWait--;
+                }
             } ImGui::SameLine();
             if(ImGui::Button("Add hour")){
                 hoursToWait++;
@@ -376,7 +377,7 @@ int main(int argc, char const *argv[])
                 CucumberStalkBranch5.setSize(sf::Vector2f{5.0, -my_cucumber_plant.getHeight()/3});
 
                 totalHours = totalHours + 24;
-            } 
+            }
 
             if(ImGui::Button("Wait the hours")){
                 // Tomato plant
