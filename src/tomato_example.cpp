@@ -67,6 +67,7 @@ int main(int argc, char const *argv[])
     int hoursToWait = 1;
     int totalHours = 0;
     int plantsAmount = 3;
+    int luxSensorValue =0;
 
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
@@ -98,11 +99,11 @@ int main(int argc, char const *argv[])
     }
     terase.setSmooth(true);
 
-    sf::Texture light;
-    if(!light.loadFromFile("..\\pictures\\TeraseV2.png")){
+    sf::Texture lightTex;
+    if(!lightTex.loadFromFile("..\\pictures\\light_PNG14427.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
-    light.setSmooth(true);
+    lightTex.setSmooth(true);
 
 
     sf::Texture sky;
@@ -131,6 +132,12 @@ int main(int argc, char const *argv[])
     skySprite.setTexture(sky);
     skySprite.setPosition(-100,-100);
     skySprite.setScale(0.7, 0.7);
+
+    
+    sf::Sprite lightSprite;
+    lightSprite.setTexture(lightTex);
+    lightSprite.setPosition(90,78);
+    lightSprite.setScale(0.2, 0.2);
     
     // sfml clock for updating
     sf::Clock deltaClock;
@@ -248,7 +255,7 @@ int main(int argc, char const *argv[])
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
 
-            my_greenhouse.adjustLight(100);
+            my_greenhouse.adjustLight(100,my_greenhouse);
             
         }
         //Keep the spritetextures dark from 24:00 to 05:00
@@ -259,8 +266,9 @@ int main(int argc, char const *argv[])
             sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            
 
-            my_greenhouse.adjustLight(100);
+            my_greenhouse.adjustLight(100, my_greenhouse);
         }
         //Daylight appears from 06:00 to 08:00
         if (getClock(totalHours)>5 && getClock(totalHours)<8)
@@ -272,7 +280,7 @@ int main(int argc, char const *argv[])
             teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             window.clear(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
 
-            my_greenhouse.adjustLight(200);
+            my_greenhouse.adjustLight(200, my_greenhouse);
             
         }
         //Keep the spritetextures light from 08:00 to 19:00
@@ -284,8 +292,17 @@ int main(int argc, char const *argv[])
             skySprite.setColor(sf::Color::White);
             teraseSprite.setColor(sf::Color::White);
 
-            my_greenhouse.adjustLight(500);
+            my_greenhouse.adjustLight(500, my_greenhouse);
         }
+
+
+        if (my_greenhouse.getLedlampvalue()==700)       
+        {
+            lightSprite.setColor(sf::Color(34,34,34));
+
+        }
+        
+
         //Update the suns position depending on the time of the day
         //sunYPos is calculated with the linear formular: 500x+17y=9450, where x = getClock().
         double sunYPos = (9450/17)-(500*getClock(totalHours))/17 ;
@@ -300,6 +317,7 @@ int main(int argc, char const *argv[])
         window.draw(tomatoStalk);
         window.draw(tomatoStalk2);
         window.draw(tomatoStalk3);
+        window.draw(lightSprite);
 
         ImGui::SFML::Render(window);
 
