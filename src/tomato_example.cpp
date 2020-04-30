@@ -98,7 +98,6 @@ int main(int argc, char const *argv[])
         int xPosTomato_plant1 = 289;
             //Tomato branch postion
             double xPosTomatoStalkBranch1 = xPosTomato_plant1;
-                double sizeTomatoes = 0.00;
             double PosTomatoStalkBranch2 = xPosTomato_plant1;
             double PosTomatoStalkBranch3 = xPosTomato_plant1;
 
@@ -190,9 +189,9 @@ int main(int argc, char const *argv[])
         sf::Clock deltaClock;
 
         // Tomato plant 1
-        sf::RectangleShape tomatoStalkRect {sf::Vector2f{5.0, -tomato_plant1.getHeight()}};
-        tomatoStalkRect.setPosition(181, xPosTomato_plant1);
-        tomatoStalkRect.setTexture(pTexture);
+        sf::RectangleShape tomatoStalk1Rect {sf::Vector2f{5.0, -tomato_plant1.getHeight()}};
+        tomatoStalk1Rect.setPosition(181, xPosTomato_plant1);
+        tomatoStalk1Rect.setTexture(pTexture);
             // Tomato plant brach 1
             sf::RectangleShape tomatoStalkBranch1 {sf::Vector2f{5.0, -tomato_plant1.getHeight()/2}};
             tomatoStalkBranch1.setPosition(181, xPosTomatoStalkBranch1);
@@ -202,7 +201,7 @@ int main(int argc, char const *argv[])
                 sf::Sprite tomatoesSprite;
                 tomatoesSprite.setTexture(tomatoesTex);
                 tomatoesSprite.setPosition(xPosTomato_plant1,xPosTomato_plant1);
-                tomatoesSprite.setScale(sizeTomatoes, sizeTomatoes);
+                tomatoesSprite.setScale(0, 0);
             // Tomato plant brach 2
             sf::RectangleShape tomatoStalkBranch2 {sf::Vector2f{5.0, -tomato_plant1.getHeight()/2}};
             tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
@@ -327,7 +326,7 @@ int main(int argc, char const *argv[])
             if(ImGui::Button("Wait one day")){
                 // Tomato plant 1
                 simulateHours(tomato_plant1, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
-                tomatoStalkRect.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()});
+                tomatoStalk1Rect.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()});
                     xPosTomatoStalkBranch1 = (- tomato_plant1.getHeight()/1.5) + 289;
                     PosTomatoStalkBranch2 = (- tomato_plant1.getHeight()/2) + 289;
                     PosTomatoStalkBranch3 = (- tomato_plant1.getHeight()/4) + 289;
@@ -378,7 +377,7 @@ int main(int argc, char const *argv[])
             if(ImGui::Button("Wait the hours")){
                 // Tomato plant
                 simulateHours(tomato_plant1, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
-                tomatoStalkRect.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()});
+                tomatoStalk1Rect.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()});
                 xPosTomatoStalkBranch1 = (-tomato_plant1.getHeight()/1.5)+xPosTomato_plant1;
                 PosTomatoStalkBranch2 = (-tomato_plant1.getHeight()/2)+xPosTomato_plant1;
                 PosTomatoStalkBranch3 = (-tomato_plant1.getHeight()/4)+xPosTomato_plant1;
@@ -488,7 +487,7 @@ int main(int argc, char const *argv[])
             window.draw(sunSprite);
             window.draw(teraseSprite);
             window.draw(greenhouseSprite);
-            window.draw(tomatoStalkRect);
+            window.draw(tomatoStalk1Rect);
                 window.draw(tomatoStalkBranch1);
                 window.draw(tomatoStalkBranch2);
                 window.draw(tomatoStalkBranch3);
