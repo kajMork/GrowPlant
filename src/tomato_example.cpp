@@ -94,27 +94,27 @@ int main(int argc, char const *argv[])
         
         //// Tomato plant 1
         //Tomato plant start position y-kooridnate
-        int my_plantPosition = 289;
+        int tomato_plant1Position = 289;
             //Tomato branch start position y-kooridnate
-            double PosTomatoStalkBranch1 = my_plantPosition;
-                double PosTomatoTomatoStalkBranch1 = my_plantPosition;
+            double PosTomatoStalkBranch1 = tomato_plant1Position;
+                double PosTomatoTomatoStalkBranch1 = tomato_plant1Position;
                 double sizeTomatoes = 0.00;
-            double PosTomatoStalkBranch2 = my_plantPosition;
-            double PosTomatoStalkBranch3 = my_plantPosition;
+            double PosTomatoStalkBranch2 = tomato_plant1Position;
+            double PosTomatoStalkBranch3 = tomato_plant1Position;
 
         //// Tomato plant 2
-        int my_plant2Position = 288;
-        double PosTomatoStalk2Branch1 = my_plant2Position;
-        double PosTomatoStalk2Branch2 = my_plant2Position;
-        double PosTomatoStalk2Branch3 = my_plant2Position;
+        int tomato_plant2Position = 288;
+        double PosTomatoStalk2Branch1 = tomato_plant2Position;
+        double PosTomatoStalk2Branch2 = tomato_plant2Position;
+        double PosTomatoStalk2Branch3 = tomato_plant2Position;
 
         //// Cucumber plant
-        int my_cucumber_plantPosition = 488;
-        double PosCucumberStalkBranch1 = my_cucumber_plantPosition;
-        double PosCucumberStalkBranch2 = my_cucumber_plantPosition;
-        double PosCucumberStalkBranch3 = my_cucumber_plantPosition;
-        double PosCucumberStalkBranch4 = my_cucumber_plantPosition;
-        double PosCucumberStalkBranch5 = my_cucumber_plantPosition;
+        int cucumber_plantPosition = 488;
+        double PosCucumberStalkBranch1 = cucumber_plantPosition;
+        double PosCucumberStalkBranch2 = cucumber_plantPosition;
+        double PosCucumberStalkBranch3 = cucumber_plantPosition;
+        double PosCucumberStalkBranch4 = cucumber_plantPosition;
+        double PosCucumberStalkBranch5 = cucumber_plantPosition;
         
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
@@ -189,7 +189,7 @@ int main(int argc, char const *argv[])
 
     // Tomato plant 1
     sf::RectangleShape tomatoStalk {sf::Vector2f{5.0, -tomato_plant1.getHeight()}};
-    tomatoStalk.setPosition(181, my_plantPosition);
+    tomatoStalk.setPosition(181, tomato_plant1Position);
     tomatoStalk.setTexture(pTexture);
         // Tomato plant brach 1
         sf::RectangleShape tomatoStalkBranch1 {sf::Vector2f{5.0, -tomato_plant1.getHeight()/2}};
@@ -198,7 +198,7 @@ int main(int argc, char const *argv[])
         tomatoStalkBranch1.setRotation (70);
             sf::Sprite tomatoesSprite;
             tomatoesSprite.setTexture(tomatoesTex);
-            tomatoesSprite.setPosition(my_plantPosition,my_plantPosition);
+            tomatoesSprite.setPosition(tomato_plant1Position,tomato_plant1Position);
             tomatoesSprite.setScale(sizeTomatoes, sizeTomatoes);
 
         // Tomato plant brach 2
@@ -214,7 +214,7 @@ int main(int argc, char const *argv[])
     
     // Tomato plant 2
     sf::RectangleShape tomatoStalk2 {sf::Vector2f{5.0, -tomato_plant2.getHeight()}};
-    tomatoStalk2.setPosition(284, my_plant2Position);
+    tomatoStalk2.setPosition(284, tomato_plant2Position);
     tomatoStalk2.setTexture(pTexture);
         sf::RectangleShape tomatoStalk2Branch1 {sf::Vector2f{5.0, -tomato_plant2.getHeight()/2}};
         tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
@@ -233,7 +233,7 @@ int main(int argc, char const *argv[])
 
     // Cucumber plant
     sf::RectangleShape CucumberStalk {sf::Vector2f{5.0, -cucumber_plant.getHeight()}};
-    CucumberStalk.setPosition(230, my_cucumber_plantPosition);
+    CucumberStalk.setPosition(230, cucumber_plantPosition);
     CucumberStalk.setTexture(pTexture);
     sf::RectangleShape CucumberStalkBranch1 {sf::Vector2f{5.0, -cucumber_plant.getHeight()/2}};
         CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
@@ -277,8 +277,8 @@ int main(int argc, char const *argv[])
 
             // Soil changing
             ImGui::Begin("Soil");
-            std::string strsoilMoisture = "Soilmoisture: " + std::to_string(my_greenhouse.getSoilMoisture());
-            std::string strSoilChange = "Here you can change \nsoil and plants.\n\nREMEMBER to change the \nsoil and plants when \nyou start the simulation.";
+            std::string strsoilMoisture = "Soil moisture sensor: " + std::to_string(my_greenhouse.getSoilMoisture());
+            std::string strSoilChange = "Here you can change \nsoil and plants.\n\nREMEMBER new soil and \nplants are needed to \ngrow something ;)";
             const char *cc_SoilMoisture = strsoilMoisture.c_str();
             const char *cc_SoilChange = strSoilChange.c_str();
             ImGui::TextUnformatted(cc_SoilMoisture);
@@ -339,9 +339,9 @@ int main(int argc, char const *argv[])
                 // Tomato plant 2
                 simulateHours(tomato_plant2, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 tomatoStalk2.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()});
-                PosTomatoStalk2Branch1 = (-tomato_plant2.getHeight()/1.5)+my_plant2Position;
-                PosTomatoStalk2Branch2 = (-tomato_plant2.getHeight()/2)+my_plant2Position;
-                PosTomatoStalk2Branch3 = (-tomato_plant2.getHeight()/4)+my_plant2Position;
+                PosTomatoStalk2Branch1 = (-tomato_plant2.getHeight()/1.5)+tomato_plant2Position;
+                PosTomatoStalk2Branch2 = (-tomato_plant2.getHeight()/2)+tomato_plant2Position;
+                PosTomatoStalk2Branch3 = (-tomato_plant2.getHeight()/4)+tomato_plant2Position;
                 tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
                 tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
                 tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
@@ -352,11 +352,11 @@ int main(int argc, char const *argv[])
                 // Cucumber plant
                 simulateHours(cucumber_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
                 CucumberStalk.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()});
-                PosCucumberStalkBranch1 = (-cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch2 = (-cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch3 = (-cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch4 = (-cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch5 = (-cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch1 = (-cucumber_plant.getHeight()/1.2)+cucumber_plantPosition;
+                PosCucumberStalkBranch2 = (-cucumber_plant.getHeight()/2)+cucumber_plantPosition;
+                PosCucumberStalkBranch3 = (-cucumber_plant.getHeight()/3)+cucumber_plantPosition;
+                PosCucumberStalkBranch4 = (-cucumber_plant.getHeight()/4)+cucumber_plantPosition;
+                PosCucumberStalkBranch5 = (-cucumber_plant.getHeight()/5)+cucumber_plantPosition;
                 CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
                 CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
                 CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
@@ -375,9 +375,9 @@ int main(int argc, char const *argv[])
                 // Tomato plant
                 simulateHours(tomato_plant1, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
                 tomatoStalk.setSize(sf::Vector2f{5.0, -tomato_plant1.getHeight()});
-                PosTomatoStalkBranch1 = (-tomato_plant1.getHeight()/1.5)+my_plantPosition;
-                PosTomatoStalkBranch2 = (-tomato_plant1.getHeight()/2)+my_plantPosition;
-                PosTomatoStalkBranch3 = (-tomato_plant1.getHeight()/4)+my_plantPosition;
+                PosTomatoStalkBranch1 = (-tomato_plant1.getHeight()/1.5)+tomato_plant1Position;
+                PosTomatoStalkBranch2 = (-tomato_plant1.getHeight()/2)+tomato_plant1Position;
+                PosTomatoStalkBranch3 = (-tomato_plant1.getHeight()/4)+tomato_plant1Position;
                 tomatoStalkBranch1.setPosition(181, PosTomatoStalkBranch1);
                 tomatoStalkBranch2.setPosition(181, PosTomatoStalkBranch2);
                 tomatoStalkBranch3.setPosition(181, PosTomatoStalkBranch3);
@@ -388,9 +388,9 @@ int main(int argc, char const *argv[])
                 // Tomato plant 2
                 simulateHours(tomato_plant2, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
                 tomatoStalk2.setSize(sf::Vector2f{5.0, -tomato_plant2.getHeight()});
-                PosTomatoStalk2Branch1 = (-tomato_plant2.getHeight()/1.5)+my_plant2Position;
-                PosTomatoStalk2Branch2 = (-tomato_plant2.getHeight()/2)+my_plant2Position;
-                PosTomatoStalk2Branch3 = (-tomato_plant2.getHeight()/4)+my_plant2Position;
+                PosTomatoStalk2Branch1 = (-tomato_plant2.getHeight()/1.5)+tomato_plant2Position;
+                PosTomatoStalk2Branch2 = (-tomato_plant2.getHeight()/2)+tomato_plant2Position;
+                PosTomatoStalk2Branch3 = (-tomato_plant2.getHeight()/4)+tomato_plant2Position;
                 tomatoStalk2Branch1.setPosition(284, PosTomatoStalk2Branch1);
                 tomatoStalk2Branch2.setPosition(284, PosTomatoStalk2Branch2);
                 tomatoStalk2Branch3.setPosition(284, PosTomatoStalk2Branch3);
@@ -401,11 +401,11 @@ int main(int argc, char const *argv[])
                 // Cucumber plant
                 simulateHours(cucumber_plant, my_watertank, my_greenhouse, hoursToWait, 0.4, plantsAmount, putSoil);
                 CucumberStalk.setSize(sf::Vector2f{5.0, -cucumber_plant.getHeight()});
-                PosCucumberStalkBranch1 = (-cucumber_plant.getHeight()/1.2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch2 = (-cucumber_plant.getHeight()/2)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch3 = (-cucumber_plant.getHeight()/3)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch4 = (-cucumber_plant.getHeight()/4)+my_cucumber_plantPosition;
-                PosCucumberStalkBranch5 = (-cucumber_plant.getHeight()/5)+my_cucumber_plantPosition;
+                PosCucumberStalkBranch1 = (-cucumber_plant.getHeight()/1.2)+cucumber_plantPosition;
+                PosCucumberStalkBranch2 = (-cucumber_plant.getHeight()/2)+cucumber_plantPosition;
+                PosCucumberStalkBranch3 = (-cucumber_plant.getHeight()/3)+cucumber_plantPosition;
+                PosCucumberStalkBranch4 = (-cucumber_plant.getHeight()/4)+cucumber_plantPosition;
+                PosCucumberStalkBranch5 = (-cucumber_plant.getHeight()/5)+cucumber_plantPosition;
                 CucumberStalkBranch1.setPosition(230, PosCucumberStalkBranch1);
                 CucumberStalkBranch2.setPosition(230, PosCucumberStalkBranch2);
                 CucumberStalkBranch3.setPosition(230, PosCucumberStalkBranch3);
@@ -422,8 +422,9 @@ int main(int argc, char const *argv[])
 
             // Show water amount and add button for refill
             ImGui::Begin("Watertank");
-            std::string str = "Water left: " + std::to_string(my_watertank.getWaterAmount());
-            const char *c = str.c_str();
+            std::string strwaterLevel = "Water level sensor: " + std::to_string(my_watertank.getWaterAmount());
+            const char *c = strwaterLevel.c_str();
+
             ImGui::TextUnformatted(c);
             if(ImGui::Button("Fill watertank")){
                 my_watertank.fillUp(1000);
