@@ -7,11 +7,7 @@ class TomatoPlant : public PlantBase
 {
 public:
     float getHeight() override {return height;};
-    int getNumTomatoes(){return num_tomatoes;};
-    float getGrowthRate(){return growth_rate;};
-
-    void setHeight(double newHeight) {height = newHeight;}
-    void grow(int hours, bool newSoil, double soilMoisture) override;
+    void grow(int hours, bool newSoil, float soilMoisture) override;
     int getMaxHeight() override {return max_Height;};
 
 private:

@@ -2,12 +2,14 @@
 
 class WaterTank
 {
-    private:
-    float waterAmount = 1000;
-
-    public:
+public:
     bool empty = false;
     float getWaterAmount(){return waterAmount;};
     void fillUp(float amount);
     void emptying(float amount);
+    
+private:
+    float waterAmount = 1000;
+
+
 };

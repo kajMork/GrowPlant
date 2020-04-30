@@ -8,11 +8,9 @@ class CucumberPlant : public PlantBase
 
 public:
     float getHeight() override {return height;};
-    int getNumCucumbers(){return num_cucumbers;};
-
-    void grow(int hours, bool newSoil, double soilMoisture) override;
-
     int getMaxHeight() override {return max_Height;};
+    void grow(int hours, bool newSoil, float soilMoisture) override;
+    
 private:
     double height{0.0};
     int num_cucumbers{0};

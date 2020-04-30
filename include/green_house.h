@@ -4,32 +4,32 @@
 
 class GreenHouse
 {
-    private:
-        float LEDLightValue;
-        const int LEDLightMaxValue = 100;
-        int plantSpaces;
-        double soilMoisture=0;
+public:
+    float getLEDLightValue(){ return LEDLightValue; };
+    void adjustLight(float amount);
 
-    public:
-        float getLEDLightValue(){ return LEDLightValue; };
-        int getPlantSpacesAvailable(){ return plantSpaces; };
-        void pumpWater(float amount);
-        void adjustLight(float amount);
-        int getSoilMoisture(){ return soilMoisture; };
-
-        void MoistureProcent(bool newSoil, double addedWater)
+    int getSoilMoisture(){ return soilMoisture; };
+    void MoistureProcent(bool newSoil, double addedWater)
+    {
+        // Random soilmoisture if new soil is put in
+        if (newSoil==true)
         {
-            if (newSoil==true)
-            {
-               int RandomNumberNewSoil = rand() % 35 + 0;
-               soilMoisture = RandomNumberNewSoil;
-            }
-
-            if (soilMoisture > 2)
-            {
-                int numEvpapor = rand() % 5 + 1;
-
-                soilMoisture = soilMoisture - numEvpapor/5 + addedWater;
-            }
+            int RandomNumberNewSoil = rand() % 35 + 5;
+            soilMoisture = RandomNumberNewSoil;
         }
+
+        // Evaporation and adding water manipulates moisture
+        if (soilMoisture > 2)
+        {
+            int numEvpapor = rand() % 5 + 1;
+
+            soilMoisture = soilMoisture - numEvpapor/5 + addedWater;
+        }
+    }
+
+private:
+    float LEDLightValue;
+    const int LEDLightMaxValue = 100;
+    int plantSpaces;
+    double soilMoisture=0;
 };
