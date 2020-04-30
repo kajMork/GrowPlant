@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(libs/SFML)
-set(IMGUI_SFML_FIND_SFML OFF)
+set(IMGUI_SFML_FIND_SFML ON)
 set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/libs/imgui)
 add_subdirectory(libs/imgui-sfml)
 

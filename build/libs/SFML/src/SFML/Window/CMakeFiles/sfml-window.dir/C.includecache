@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../libs/SFML/src/SFML/Window/OSX/SFApplication.h
+AppKit/AppKit.h
+-
+Foundation/Foundation.h
+-
+
+../libs/SFML/src/SFML/Window/OSX/SFApplicationDelegate.h
+AppKit/AppKit.h
+-
+Foundation/Foundation.h
+-
+
+../libs/SFML/src/SFML/Window/OSX/SFSilentResponder.h
+AppKit/AppKit.h
+-
+
+../libs/SFML/src/SFML/Window/OSX/SFWindow.h
+AppKit/AppKit.h
+-
+
+/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/src/SFML/Window/OSX/SFApplication.m
+SFML/Window/OSX/SFApplication.h
+-
+
+/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/src/SFML/Window/OSX/SFApplicationDelegate.m
+SFML/Window/OSX/SFApplicationDelegate.h
+-
+
+/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/src/SFML/Window/OSX/SFSilentResponder.m
+SFML/Window/OSX/SFSilentResponder.h
+-
+
+/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/src/SFML/Window/OSX/SFWindow.m
+SFML/Window/OSX/SFWindow.h
+-
+

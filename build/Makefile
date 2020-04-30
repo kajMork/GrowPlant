@@ -73,6 +73,52 @@ CMAKE_BINARY_DIR = /Users/madsrossen/Documents/GitHub/GrowPlant/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"bin\" \"devel\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -127,6 +173,232 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named tomato_example
+
+# Build rule for target.
+tomato_example: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tomato_example
+.PHONY : tomato_example
+
+# fast build rule for target.
+tomato_example/fast:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/build
+.PHONY : tomato_example/fast
+
+#=============================================================================
+# Target rules for targets named sfml-system
+
+# Build rule for target.
+sfml-system: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sfml-system
+.PHONY : sfml-system
+
+# fast build rule for target.
+sfml-system/fast:
+	$(MAKE) -f libs/SFML/src/SFML/System/CMakeFiles/sfml-system.dir/build.make libs/SFML/src/SFML/System/CMakeFiles/sfml-system.dir/build
+.PHONY : sfml-system/fast
+
+#=============================================================================
+# Target rules for targets named sfml-window
+
+# Build rule for target.
+sfml-window: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sfml-window
+.PHONY : sfml-window
+
+# fast build rule for target.
+sfml-window/fast:
+	$(MAKE) -f libs/SFML/src/SFML/Window/CMakeFiles/sfml-window.dir/build.make libs/SFML/src/SFML/Window/CMakeFiles/sfml-window.dir/build
+.PHONY : sfml-window/fast
+
+#=============================================================================
+# Target rules for targets named sfml-network
+
+# Build rule for target.
+sfml-network: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sfml-network
+.PHONY : sfml-network
+
+# fast build rule for target.
+sfml-network/fast:
+	$(MAKE) -f libs/SFML/src/SFML/Network/CMakeFiles/sfml-network.dir/build.make libs/SFML/src/SFML/Network/CMakeFiles/sfml-network.dir/build
+.PHONY : sfml-network/fast
+
+#=============================================================================
+# Target rules for targets named sfml-graphics
+
+# Build rule for target.
+sfml-graphics: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sfml-graphics
+.PHONY : sfml-graphics
+
+# fast build rule for target.
+sfml-graphics/fast:
+	$(MAKE) -f libs/SFML/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make libs/SFML/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
+.PHONY : sfml-graphics/fast
+
+#=============================================================================
+# Target rules for targets named sfml-audio
+
+# Build rule for target.
+sfml-audio: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sfml-audio
+.PHONY : sfml-audio
+
+# fast build rule for target.
+sfml-audio/fast:
+	$(MAKE) -f libs/SFML/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make libs/SFML/src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
+.PHONY : sfml-audio/fast
+
+#=============================================================================
+# Target rules for targets named ImGui-SFML
+
+# Build rule for target.
+ImGui-SFML: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ImGui-SFML
+.PHONY : ImGui-SFML
+
+# fast build rule for target.
+ImGui-SFML/fast:
+	$(MAKE) -f libs/imgui-sfml/CMakeFiles/ImGui-SFML.dir/build.make libs/imgui-sfml/CMakeFiles/ImGui-SFML.dir/build
+.PHONY : ImGui-SFML/fast
+
+src/cucumber_plant.o: src/cucumber_plant.cpp.o
+
+.PHONY : src/cucumber_plant.o
+
+# target to build an object file
+src/cucumber_plant.cpp.o:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.o
+.PHONY : src/cucumber_plant.cpp.o
+
+src/cucumber_plant.i: src/cucumber_plant.cpp.i
+
+.PHONY : src/cucumber_plant.i
+
+# target to preprocess a source file
+src/cucumber_plant.cpp.i:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.i
+.PHONY : src/cucumber_plant.cpp.i
+
+src/cucumber_plant.s: src/cucumber_plant.cpp.s
+
+.PHONY : src/cucumber_plant.s
+
+# target to generate assembly for a file
+src/cucumber_plant.cpp.s:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.s
+.PHONY : src/cucumber_plant.cpp.s
+
+src/greenhouse.o: src/greenhouse.cpp.o
+
+.PHONY : src/greenhouse.o
+
+# target to build an object file
+src/greenhouse.cpp.o:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/greenhouse.cpp.o
+.PHONY : src/greenhouse.cpp.o
+
+src/greenhouse.i: src/greenhouse.cpp.i
+
+.PHONY : src/greenhouse.i
+
+# target to preprocess a source file
+src/greenhouse.cpp.i:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/greenhouse.cpp.i
+.PHONY : src/greenhouse.cpp.i
+
+src/greenhouse.s: src/greenhouse.cpp.s
+
+.PHONY : src/greenhouse.s
+
+# target to generate assembly for a file
+src/greenhouse.cpp.s:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/greenhouse.cpp.s
+.PHONY : src/greenhouse.cpp.s
+
+src/tomato_example.o: src/tomato_example.cpp.o
+
+.PHONY : src/tomato_example.o
+
+# target to build an object file
+src/tomato_example.cpp.o:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_example.cpp.o
+.PHONY : src/tomato_example.cpp.o
+
+src/tomato_example.i: src/tomato_example.cpp.i
+
+.PHONY : src/tomato_example.i
+
+# target to preprocess a source file
+src/tomato_example.cpp.i:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_example.cpp.i
+.PHONY : src/tomato_example.cpp.i
+
+src/tomato_example.s: src/tomato_example.cpp.s
+
+.PHONY : src/tomato_example.s
+
+# target to generate assembly for a file
+src/tomato_example.cpp.s:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_example.cpp.s
+.PHONY : src/tomato_example.cpp.s
+
+src/tomato_plant.o: src/tomato_plant.cpp.o
+
+.PHONY : src/tomato_plant.o
+
+# target to build an object file
+src/tomato_plant.cpp.o:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.o
+.PHONY : src/tomato_plant.cpp.o
+
+src/tomato_plant.i: src/tomato_plant.cpp.i
+
+.PHONY : src/tomato_plant.i
+
+# target to preprocess a source file
+src/tomato_plant.cpp.i:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.i
+.PHONY : src/tomato_plant.cpp.i
+
+src/tomato_plant.s: src/tomato_plant.cpp.s
+
+.PHONY : src/tomato_plant.s
+
+# target to generate assembly for a file
+src/tomato_plant.cpp.s:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.s
+.PHONY : src/tomato_plant.cpp.s
+
+src/watertank.o: src/watertank.cpp.o
+
+.PHONY : src/watertank.o
+
+# target to build an object file
+src/watertank.cpp.o:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/watertank.cpp.o
+.PHONY : src/watertank.cpp.o
+
+src/watertank.i: src/watertank.cpp.i
+
+.PHONY : src/watertank.i
+
+# target to preprocess a source file
+src/watertank.cpp.i:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/watertank.cpp.i
+.PHONY : src/watertank.cpp.i
+
+src/watertank.s: src/watertank.cpp.s
+
+.PHONY : src/watertank.s
+
+# target to generate assembly for a file
+src/watertank.cpp.s:
+	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/watertank.cpp.s
+.PHONY : src/watertank.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -134,7 +406,33 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... ImGui-SFML"
+	@echo "... sfml-audio"
+	@echo "... sfml-graphics"
+	@echo "... sfml-network"
+	@echo "... sfml-system"
+	@echo "... sfml-window"
+	@echo "... tomato_example"
+	@echo "... src/cucumber_plant.o"
+	@echo "... src/cucumber_plant.i"
+	@echo "... src/cucumber_plant.s"
+	@echo "... src/greenhouse.o"
+	@echo "... src/greenhouse.i"
+	@echo "... src/greenhouse.s"
+	@echo "... src/tomato_example.o"
+	@echo "... src/tomato_example.i"
+	@echo "... src/tomato_example.s"
+	@echo "... src/tomato_plant.o"
+	@echo "... src/tomato_plant.i"
+	@echo "... src/tomato_plant.s"
+	@echo "... src/watertank.o"
+	@echo "... src/watertank.i"
+	@echo "... src/watertank.s"
 .PHONY : help
 
 
