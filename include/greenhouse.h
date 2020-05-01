@@ -4,8 +4,9 @@ class Greenhouse
 {
     private:
     const int LEDLightwishedValue = 800;
-    float LEDlamp;
+    float LEDlamp = 0;
     int plantSpaces;
+    float luxSensorValue;
 
     public:
 
@@ -14,4 +15,5 @@ class Greenhouse
     void adjustLight(float luxSensorValue);
     float getLedlampvalue(){return LEDlamp; };
     int getledwishedValue(){return LEDLightwishedValue;};
+    float getluxSensorValue() {return luxSensorValue;};
 };
