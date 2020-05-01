@@ -286,7 +286,7 @@ int main(int argc, char const *argv[])
             teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             
-            my_greenhouse.adjustLight(700-(getClock(totalHours)-20)*70);
+            my_greenhouse.adjustLight(700-(getClock(totalHours)-20)*100);
             
             
         }
@@ -326,13 +326,14 @@ int main(int argc, char const *argv[])
         }
 
     if(autoLight==true){
-        lightSprite.setColor(sf::Color(255,255,255, my_greenhouse.getLedlampvalue()));
+        lightSprite.setColor(sf::Color(255,255,255, my_greenhouse.getLedlampvalue()*0.3));
+
     }
 
     else if (autoLight==false)
     {
         lightSprite.setColor(sf::Color(255,255,255,0));
-        my_greenhouse.adjustLight(800);
+        my_greenhouse.adjustLight(-1);
     }
     
 
