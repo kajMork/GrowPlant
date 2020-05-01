@@ -13,4 +13,5 @@ class Greenhouse
     void pumpWater(float amount);
     void adjustLight(float luxSensorValue);
     float getLedlampvalue(){return LEDlamp; };
+    int getledwishedValue(){return LEDLightwishedValue;};
 };

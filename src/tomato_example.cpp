@@ -67,7 +67,6 @@ int main(int argc, char const *argv[])
     int hoursToWait = 1;
     int totalHours = 0;
     int plantsAmount = 3;
-    int luxSensorValue =0;
 
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
@@ -136,7 +135,7 @@ int main(int argc, char const *argv[])
     
     sf::Sprite lightSprite;
     lightSprite.setTexture(lightTex);
-    lightSprite.setPosition(90,78);
+    lightSprite.setPosition(105,78);
     lightSprite.setScale(0.2, 0.2);
     
     // sfml clock for updating
@@ -244,6 +243,7 @@ int main(int argc, char const *argv[])
         //Update spritetextures color for the time of the day.
         double rgb_codenight;
         double rgb_codeday;
+        double rgb_LEDlight;
         ImGui::End();
         //Daylight disappears from 20:00 to 24:00 
         if (getClock(totalHours)>19 && getClock(totalHours)<25)
@@ -296,12 +296,11 @@ int main(int argc, char const *argv[])
         }
 
 
-        if (my_greenhouse.getLedlampvalue()==700)       
+        void (my_greenhouse.getLedlampvalue())       
         {
-            int rgbLight= my_greenhouse.getLedlampvalue
-            lightSprite.setColor(sf::Color(34,34,34));
-
-        }
+            rgb_LEDlight=my_greenhouse.getLedlampvalue()*0,8;
+            lightSprite.setColor(sf::Color(rgb_LEDlight,rgb_LEDlight,rgb_LEDlight));
+        };
 
 
         

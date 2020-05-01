@@ -13,9 +13,7 @@ void Greenhouse::adjustLight(float luxSensorValue){
      if (luxSensorValue < LEDLightwishedValue)
      {
         LEDlamp=LEDLightwishedValue-luxSensorValue;
-     }
-     
-           
+     }     
       
           
 
