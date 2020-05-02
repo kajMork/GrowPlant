@@ -8,3 +8,5 @@
 ## Version Updateringer:
 * 23-04-2020: Merged master branch med Benjamin_Edit branch.
 * 27-04-2020: Merged master branch med master_hours.
+* 02-05-2020: Merged master branch med optimeret Kasperv2 branch.
+* 02_05-2020: Merged master branch med Mathiasv2 branch.
