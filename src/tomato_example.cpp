@@ -2,6 +2,7 @@
 #include "../include/cucumber_plant.h"
 #include "../include/greenhouse.h"
 #include "../include/watertank.h"
+#include "../include/textures.h"
 #include "imgui.h"
 #include "imgui-SFML.h"
 #include "SFML/Graphics.hpp"
@@ -10,29 +11,43 @@
 #include <vector>
 #include <iostream>
 #include <stdlib.h>
-
-void simulateHours(PlantBase &a_plant, Watertank &waterTank, int hours, int waterNeedAmount, int plantsAmount){
-        for (int i = 0; i < hours; i++)
+void simulateHours(PlantBase &a_plant, Watertank &waterTank, GreenHouse &a_greenhouse, int hours, int waterNeedAmount, int plantsAmount, bool putSoil){
+    for (int i = 0; i <= hours; i++)
+    {
+        if (hours!=0)
         {
-            if (a_plant.getHeight() <= a_plant.getMaxHeight())
-            {
-                waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 20 ));
-            }
-            
-            if(waterTank.getWaterAmount() <= 0)
-                waterTank.empty = true;
-            else
-                waterTank.empty = false;
-            
-            if(!waterTank.empty && a_plant.getHeight() <= a_plant.getMaxHeight())
-                a_plant.grow(1);
-            else break;
+            a_greenhouse.MoistureProcent(putSoil, 0);
         }
+
+        if (a_greenhouse.getSoilMoisture()<=16 && waterTank.getWaterAmount()>0)
+        {
+            waterTank.emptying(waterNeedAmount + (a_plant.getHeight() / 5));
+            a_greenhouse.MoistureProcent(putSoil, waterNeedAmount + (a_plant.getHeight() / 20));
+        }
+        
+        if(waterTank.getWaterAmount() <= 0)
+        {
+            waterTank.empty = true;
+        }
+
+        else
+        {
+            waterTank.empty = false;
+        }
+        
+        if(a_plant.getHeight() <= a_plant.getMaxHeight() && a_greenhouse.getSoilMoisture()>7)
+        {
+            a_plant.grow(1, putSoil, a_greenhouse.getSoilMoisture());
+        }
+        else if (putSoil==true)
+        {
+            a_plant.grow(1, putSoil, a_greenhouse.getSoilMoisture());
+        }
+        else
+        break;
+    }
 }
 
-void simulateOneDay(PlantBase &a_plant){
-    a_plant.grow(1);
-}
 
 int getClock (int totalHours)
 {   
@@ -53,95 +68,36 @@ int main(int argc, char const *argv[])
     // Define types
     TomatoPlant my_plant;
     TomatoPlant my_plant2;
-    TomatoPlant my_plant3;
-    CucumberPlant my_cucumber_plant;
-    Greenhouse my_greenhouse;
+    CucumberPlant my_plant3;
+    GreenHouse my_greenhouse;
     Watertank my_watertank;
-
-    std::cout << "First plant: " << my_plant.getGrowthRate() << std::endl;
-    std::cout << "Second plant: " << my_plant2.getGrowthRate() << std::endl;
-    std::cout << "Third plant: " << my_plant3.getGrowthRate() << std::endl;
 
     // Variables
     int time = 8;
     int hoursToWait = 1;
     int totalHours = 0;
     int plantsAmount = 3;
+    bool putSoil=false;
 
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
     window.setFramerateLimit(60);
     ImGui::SFML::Init(window);
 
-    // Texture rendering
-    sf::Texture greenhouseTex;
-    if(!greenhouseTex.loadFromFile("..\\pictures\\Drivhus_2_v5.png")){
-        std::cout << "Couldn't load textures, check directory." << std::endl;
-    }
-    greenhouseTex.setSmooth(true);
+    // Texture rendering and sprite setup
+    textures mytexture;
+    mytexture.loadTextures();
+    mytexture.setupSprites();
+    // setup branches for each plant
+    mytexture.tomatoStalk1Branches = mytexture.setupPlantBranches(mytexture.tomatoStalk1Branch1, mytexture.tomatoStalk1Branch2, mytexture.tomatoStalk1Branch3, 181, 289);
+    mytexture.tomatoStalk2Branches = mytexture.setupPlantBranches(mytexture.tomatoStalk2Branch1, mytexture.tomatoStalk2Branch2, mytexture.tomatoStalk2Branch3, 284, 288);
+    mytexture.cucumberStalk1Branches = mytexture.setupPlantBranches(mytexture.cucumberStalk1Branch1, mytexture.cucumberStalk1Branch2, mytexture.cucumberStalk1Branch3, 174, 488);
+    mytexture.cropsTomatoStalk1 = mytexture.setupCrops(mytexture.tomatoesSprite, "tomato", 181, 289);
+    mytexture.cropsTomatoStalk2 = mytexture.setupCrops(mytexture.tomatoesSprite, "tomato", 284, 288);
+    mytexture.cropsCucumberStalk1 = mytexture.setupCrops(mytexture.cucumberSprite, "cucumber", 174, 488);
 
-    sf::Texture stalk;
-    if(!stalk.loadFromFile("..\\pictures\\stalk.jpg")){
-        std::cout << "Couldn't load textures, check directory." << std::endl;
-    }
-    stalk.setSmooth(true);
-
-    sf::Texture sun;
-    if(!sun.loadFromFile("..\\pictures\\SunV3.png")){
-        std::cout << "Couldn't load textures, check directory." << std::endl;
-    }
-    sun.setSmooth(true);
-
-    sf::Texture terase;
-    if(!terase.loadFromFile("..\\pictures\\TeraseV2.png")){
-        std::cout << "Couldn't load textures, check directory." << std::endl;
-    }
-    terase.setSmooth(true);
-
-    sf::Texture sky;
-    if(!sky.loadFromFile("..\\pictures\\Sky.png")){
-        std::cout << "Couldn't load textures, check directory." << std::endl;
-    }
-    stalk.setSmooth(true);
-    const sf::Texture *pTexture = &stalk;
-
-    sf::Sprite greenhouseSprite;
-    greenhouseSprite.setTexture(greenhouseTex);
-    greenhouseSprite.setPosition(100, 70);
-    greenhouseSprite.setScale(0.8, 0.8);
-
-    sf::Sprite sunSprite;
-    sunSprite.setTexture(sun);
-    sunSprite.setScale(0.4, 0.4);
-    
-
-    sf::Sprite teraseSprite;
-    teraseSprite.setTexture(terase);
-    teraseSprite.setPosition(-100,-100);
-    teraseSprite.setScale(1, 1);
-
-    sf::Sprite skySprite;
-    skySprite.setTexture(sky);
-    skySprite.setPosition(-100,-100);
-    skySprite.setScale(0.7, 0.7);
-    
     // sfml clock for updating
     sf::Clock deltaClock;
-
-    // Tomato plant
-    sf::RectangleShape tomatoStalk {sf::Vector2f{5.0, -my_plant.getHeight()}};
-    tomatoStalk.setPosition(181, 289);
-    tomatoStalk.setTexture(pTexture);
-    
-    // Tomato plant 2
-    sf::RectangleShape tomatoStalk2 {sf::Vector2f{5.0, -my_plant2.getHeight()}};
-    tomatoStalk2.setPosition(284, 288);
-    tomatoStalk2.setTexture(pTexture);
-
-    // Tomato plant 3
-    sf::RectangleShape tomatoStalk3 {sf::Vector2f{5.0, -my_plant3.getHeight()}};
-    tomatoStalk3.setPosition(174, 488);
-    tomatoStalk3.setTexture(pTexture);
 
     while (window.isOpen()){
 
@@ -158,6 +114,21 @@ int main(int argc, char const *argv[])
 
     // UI SEGMENTS //
 
+        ImGui::Begin("Soil");
+        std::string strsoilMoisture = "Soil moisture sensor: " + std::to_string(my_greenhouse.getSoilMoisture());
+        std::string strSoilChange = "Here you can change \nsoil and plants.\n\nREMEMBER new soil and \nplants are needed to \ngrow something ;)";
+        const char *cc_SoilMoisture = strsoilMoisture.c_str();
+        const char *cc_SoilChange = strSoilChange.c_str();
+        ImGui::TextUnformatted(cc_SoilMoisture);
+        ImGui::TextUnformatted(cc_SoilChange);
+            
+        if(ImGui::Button("Change")){
+            putSoil=true;
+            simulateHours(my_plant, my_watertank, my_greenhouse, 1, 0.4, plantsAmount, putSoil);
+            putSoil=false;
+        }
+            
+        ImGui::End();
         // Plant simulator controller
         ImGui::Begin("Controller");
             // Being able to see and change how many Hours the user wants to wait
@@ -186,16 +157,22 @@ int main(int argc, char const *argv[])
                 hoursToWait++;
             }
             if(ImGui::Button("Wait one day")){
-                simulateHours(my_plant, my_watertank, 24, 0.4, plantsAmount);
-                tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
-
+                // First TomatoPlant
+                simulateHours(my_plant, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
+                mytexture.tomatoStalk1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
+                mytexture.updatePlantBranches(mytexture.tomatoStalk1Branches, my_plant.getHeight(), 181, 289);
+                mytexture.updateCrops(mytexture.cropsTomatoStalk1, my_plant.getHeight(), 181, 289);
                 // Second TomatoPlant
-                simulateHours(my_plant2, my_watertank, 24, 0.4, plantsAmount);
-                tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
+                simulateHours(my_plant2, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
+                mytexture.tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
+                mytexture.updatePlantBranches(mytexture.tomatoStalk2Branches, my_plant2.getHeight(), 284, 288);
+                mytexture.updateCrops(mytexture.cropsTomatoStalk2, my_plant2.getHeight(), 284, 288);
 
-                // Third TomatoPlant
-                simulateHours(my_plant3, my_watertank, 24, 0.4, plantsAmount);
-                tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+                // First CucumberPlant
+                simulateHours(my_plant3, my_watertank, my_greenhouse, 24, 0.4, plantsAmount, putSoil);
+                mytexture.cucumberStalk1.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+                mytexture.updatePlantBranches(mytexture.cucumberStalk1Branches, my_plant3.getHeight(), 174, 488);
+                mytexture.updateCrops(mytexture.cropsCucumberStalk1, my_plant3.getHeight(), 174, 488);
 
                 totalHours = totalHours + 24;
                 
@@ -203,24 +180,28 @@ int main(int argc, char const *argv[])
 
             if(ImGui::Button("Wait the hours")){
                 // First TomatoPlant
-                simulateHours(my_plant, my_watertank, hoursToWait, 0.4, plantsAmount);
-                tomatoStalk.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
-
+                simulateHours(my_plant, my_watertank, my_greenhouse, 1, 0.4, plantsAmount, putSoil);
+                mytexture.tomatoStalk1.setSize(sf::Vector2f{5.0, -my_plant.getHeight()});
+                mytexture.updatePlantBranches(mytexture.tomatoStalk1Branches, my_plant.getHeight(), 181, 289);
+                mytexture.updateCrops(mytexture.cropsTomatoStalk1, my_plant.getHeight(), 181, 289);
                 // Second TomatoPlant
-                simulateHours(my_plant2, my_watertank, hoursToWait, 0.4, plantsAmount);
-                tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
-
-                // Third TomatoPlant
-                simulateHours(my_plant3, my_watertank, hoursToWait, 0.4, plantsAmount);
-                tomatoStalk3.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+                simulateHours(my_plant2, my_watertank, my_greenhouse, 1, 0.4, plantsAmount, putSoil);
+                mytexture.tomatoStalk2.setSize(sf::Vector2f{5.0, -my_plant2.getHeight()});
+                mytexture.updatePlantBranches(mytexture.tomatoStalk2Branches, my_plant2.getHeight(), 284, 288);
+                mytexture.updateCrops(mytexture.cropsTomatoStalk2, my_plant2.getHeight(), 284, 288);
+                // Third CucumberPlant
+                simulateHours(my_plant3, my_watertank, my_greenhouse, 1, 0.4, plantsAmount, putSoil);
+                mytexture.cucumberStalk1.setSize(sf::Vector2f{5.0, -my_plant3.getHeight()});
+                mytexture.updatePlantBranches(mytexture.cucumberStalk1Branches, my_plant3.getHeight(), 174, 488);
+                mytexture.updateCrops(mytexture.cropsCucumberStalk1, my_plant3.getHeight(), 174, 488);
 
                 totalHours = totalHours + hoursToWait;
             }
 
             // Show water amount and add button for refill
             ImGui::Begin("Watertank");
-            std::string str = "Water left: " + std::to_string(my_watertank.getWaterAmount());
-            const char *c = str.c_str();
+            std::string strwaterLevel = "Water level sensor: " + std::to_string(my_watertank.getWaterAmount());
+            const char *c = strwaterLevel.c_str();
             ImGui::TextUnformatted(c);
             if(ImGui::Button("Fill watertank")){
                 my_watertank.fillUp(1000);
@@ -236,9 +217,9 @@ int main(int argc, char const *argv[])
         {   
             //Make spritetextures darker for each incremented hour. 
             rgb_codenight = 255-(getClock(totalHours)-20)*48.75;
-            sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            mytexture.sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            mytexture.skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            mytexture.teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
             
         }
@@ -247,18 +228,18 @@ int main(int argc, char const *argv[])
         {
             
             window.clear(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
-            teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            mytexture.sunSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            mytexture.skySprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
+            mytexture.teraseSprite.setColor(sf::Color(rgb_codenight,rgb_codenight,rgb_codenight));
         }
         //Daylight appears from 06:00 to 08:00
         if (getClock(totalHours)>5 && getClock(totalHours)<8)
         {
             //Make spritetextures lighter for each incremented hour. 
             rgb_codeday = rgb_codenight+(getClock(totalHours)-4)*48.75;
-            sunSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
-            skySprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
-            teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+            mytexture.sunSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+            mytexture.skySprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
+            mytexture.teraseSprite.setColor(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             window.clear(sf::Color(rgb_codeday,rgb_codeday,rgb_codeday));
             
         }
@@ -267,25 +248,31 @@ int main(int argc, char const *argv[])
         {
             
             window.clear(sf::Color::White);
-            sunSprite.setColor(sf::Color::White);
-            skySprite.setColor(sf::Color::White);
-            teraseSprite.setColor(sf::Color::White);
+            mytexture.sunSprite.setColor(sf::Color::White);
+            mytexture.skySprite.setColor(sf::Color::White);
+            mytexture.teraseSprite.setColor(sf::Color::White);
         }
         //Update the suns position depending on the time of the day
         //sunYPos is calculated with the linear formular: 500x+17y=9450, where x = getClock().
         double sunYPos = (9450/17)-(500*getClock(totalHours))/17 ;
-        sunSprite.setPosition(450,sunYPos);
+        mytexture.sunSprite.setPosition(450,sunYPos);
         
 
         // Draw to screen
-        window.draw(skySprite);
-        window.draw(sunSprite);
-        window.draw(teraseSprite);
-        window.draw(greenhouseSprite);
-        window.draw(tomatoStalk);
-        window.draw(tomatoStalk2);
-        window.draw(tomatoStalk3);
-
+        window.draw(mytexture.skySprite);
+        window.draw(mytexture.sunSprite);
+        window.draw(mytexture.teraseSprite);
+        window.draw(mytexture.greenhouseSprite);
+        window.draw(mytexture.tomatoStalk1);
+        window.draw(mytexture.tomatoStalk2);
+        window.draw(mytexture.cucumberStalk1);
+        //Draw each branch on the screen
+        for ( auto obj1 : mytexture.tomatoStalk1Branches) window.draw(obj1);
+        for ( auto obj2 : mytexture.tomatoStalk2Branches) window.draw(obj2);
+        for ( auto obj3 : mytexture.cucumberStalk1Branches) window.draw(obj3);
+        for ( auto obj4 : mytexture.cropsTomatoStalk1) window.draw(obj4);
+        for ( auto obj5 : mytexture.cropsTomatoStalk2) window.draw(obj5);
+        for ( auto obj6 : mytexture.cropsCucumberStalk1) window.draw(obj6);
         ImGui::SFML::Render(window);
 
         window.display();

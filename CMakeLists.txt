@@ -14,7 +14,8 @@ add_executable(tomato_example   src/tomato_example.cpp
                                 src/tomato_plant.cpp 
                                 src/cucumber_plant.cpp
                                 src/watertank.cpp
-                                src/greenhouse.cpp)
+                                src/greenhouse.cpp
+                                src/textures.cpp)
 
 target_link_libraries(tomato_example sfml-graphics sfml-system ImGui-SFML::ImGui-SFML)
 

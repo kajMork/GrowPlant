@@ -10,7 +10,7 @@ public:
     float getGrowthRate(){return growth_rate;};
 
     void setHeight(double newHeight) {height = newHeight;}
-    void grow(int days) override;
+    void grow(int hours, bool newSoil, float soilMoisture) override;
     int getMaxHeight() override {return max_Height;};
 
 private:
