@@ -7,7 +7,7 @@ class GreenHouse
 public:
     int getPlantSpacesAvailable(){ return plantSpaces; };
     void pumpWater(float amount);
-    void adjustLight(float luxSensorValue);
+    void adjustLight(float luxSensorinput);
     float getLedlampvalue(){return LEDlamp; };
     int getledwishedValue(){return LEDLightwishedValue;};
     float getluxSensorValue() {return luxSensorValue;};

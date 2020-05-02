@@ -42,6 +42,12 @@ void textures::loadTextures()
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     cucumberTex.setSmooth(true);
+
+    
+    if(!lightTex.loadFromFile("..\\pictures\\light_PNG14427.png")){
+        std::cout << "Couldn't load textures, check directory." << std::endl;
+    }
+    lightTex.setSmooth(true);
     pTexture  = &stalk;
 
 }
@@ -89,7 +95,10 @@ void textures::setupSprites()
     cucumberSprite.setTexture(cucumberTex);
     //tomatoesSprite.setPosition(xPosTomato_plant1,xPosTomato_plant1);
     cucumberSprite.setScale(0, 0);
-
+    
+    lightSprite.setTexture(lightTex);
+    lightSprite.setPosition(105,78);
+    lightSprite.setScale(0.2, 0.2);
 }
 
 std::vector<sf::RectangleShape> textures::setupPlantBranches(sf::RectangleShape branch1, sf::RectangleShape branch2, sf::RectangleShape branch3, int x_pos, int y_pos)

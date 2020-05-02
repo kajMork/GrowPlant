@@ -101,16 +101,9 @@ int main(int argc, char const *argv[])
     mytexture.cropsTomatoStalk2 = mytexture.setupCrops(mytexture.tomatoesSprite, "tomato", 284, 288);
     mytexture.cropsCucumberStalk1 = mytexture.setupCrops(mytexture.cucumberSprite, "cucumber", 174, 488);
 
-    sf::Sprite lightSprite;
-    lightSprite.setTexture(lightTex);
-    lightSprite.setPosition(105,78);
-    lightSprite.setScale(0.2, 0.2);
 
-    sf::Texture lightTex;
-    if(!lightTex.loadFromFile("..\\pictures\\light_PNG14427.png")){
-        std::cout << "Couldn't load textures, check directory." << std::endl;
-    }
-    lightTex.setSmooth(true);
+
+
     // sfml clock for updating
     sf::Clock deltaClock;
 
@@ -301,13 +294,13 @@ int main(int argc, char const *argv[])
         }
 
     if(autoLight==true){
-        lightSprite.setColor(sf::Color(255,255,255, my_greenhouse.getLedlampvalue()*0.3));
+        mytexture.lightSprite.setColor(sf::Color(255,255,255, my_greenhouse.getLedlampvalue()*0.3));
 
     }
 
     else if (autoLight==false)
     {
-        lightSprite.setColor(sf::Color(255,255,255,0));
+        mytexture.lightSprite.setColor(sf::Color(255,255,255,0));
         my_greenhouse.adjustLight(-1);
     }
     
@@ -333,7 +326,7 @@ int main(int argc, char const *argv[])
         for ( auto obj4 : mytexture.cropsTomatoStalk1) window.draw(obj4);
         for ( auto obj5 : mytexture.cropsTomatoStalk2) window.draw(obj5);
         for ( auto obj6 : mytexture.cropsCucumberStalk1) window.draw(obj6);
-        window.draw(lightSprite);
+        window.draw(mytexture.lightSprite);
         ImGui::SFML::Render(window);
 
         window.display();

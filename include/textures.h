@@ -43,7 +43,8 @@ public:
     std::vector<sf::Sprite> cropsCucumberStalk1;
     sf::Texture tomatoesTex;
     sf::Texture cucumberTex;
-    
+    sf::Texture lightTex;
+    sf::Sprite lightSprite;
 
     void loadTextures();
     void setupSprites();

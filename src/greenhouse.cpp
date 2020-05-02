@@ -12,7 +12,7 @@ void Greenhouse::pumpWater(float amount){
 
 };*/
 
-void Greenhouse::adjustLight(float luxSensorinput){
+void GreenHouse::adjustLight(float luxSensorinput){
    
    if(luxSensorinput==-1){
        LEDlamp=0;
@@ -23,5 +23,4 @@ void Greenhouse::adjustLight(float luxSensorinput){
         luxSensorValue=luxSensorinput;
         LEDlamp=LEDLightwishedValue-luxSensorinput;
    }
-};
-};
+}
