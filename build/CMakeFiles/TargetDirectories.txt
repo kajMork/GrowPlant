@@ -4,7 +4,7 @@
 /Users/madsrossen/Documents/GitHub/GrowPlant/build/CMakeFiles/list_install_components.dir
 /Users/madsrossen/Documents/GitHub/GrowPlant/build/CMakeFiles/rebuild_cache.dir
 /Users/madsrossen/Documents/GitHub/GrowPlant/build/CMakeFiles/edit_cache.dir
-/Users/madsrossen/Documents/GitHub/GrowPlant/build/CMakeFiles/tomato_example.dir
+/Users/madsrossen/Documents/GitHub/GrowPlant/build/CMakeFiles/mainprogram.dir
 /Users/madsrossen/Documents/GitHub/GrowPlant/build/libs/SFML/CMakeFiles/install/local.dir
 /Users/madsrossen/Documents/GitHub/GrowPlant/build/libs/SFML/CMakeFiles/install/strip.dir
 /Users/madsrossen/Documents/GitHub/GrowPlant/build/libs/SFML/CMakeFiles/install.dir

@@ -1,15 +1,18 @@
 #pragma once
-#include"../include/greenhouse.h"
-#include"../include/watertank.h"
+#include"/Users/madsrossen/Documents/GitHub/GrowPlant/include/greenhouse.h"
+#include"/Users/madsrossen/Documents/GitHub/GrowPlant/include/watertank.h"
 
-// Do so it actoully gets water from watertank.
-void Greenhouse::pumpWater(float amount){
+void GreenHouse::adjustLight(float luxSensorinput){
+   
 
-};
+   if(luxSensorinput==-1){
+       LEDlamp = 0;
+   }
 
-void Greenhouse::adjustLight(float amount){
-    if(amount > LEDLightMaxValue)
-        LEDLightValue = LEDLightMaxValue;
-    else
-        LEDLightValue = amount;
-};
+    // If lux is too low the led becomes brighter
+   else if (luxSensorinput <= LEDLightwishedValue)
+   {
+        luxSensorValue=luxSensorinput;
+        LEDlamp = LEDLightwishedValue - luxSensorinput;
+   }
+}

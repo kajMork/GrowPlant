@@ -174,17 +174,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tomato_example
+# Target rules for targets named mainprogram
 
 # Build rule for target.
-tomato_example: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tomato_example
-.PHONY : tomato_example
+mainprogram: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mainprogram
+.PHONY : mainprogram
 
 # fast build rule for target.
-tomato_example/fast:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/build
-.PHONY : tomato_example/fast
+mainprogram/fast:
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/build
+.PHONY : mainprogram/fast
 
 #=============================================================================
 # Target rules for targets named sfml-system
@@ -270,7 +270,7 @@ src/cucumber_plant.o: src/cucumber_plant.cpp.o
 
 # target to build an object file
 src/cucumber_plant.cpp.o:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.o
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/cucumber_plant.cpp.o
 .PHONY : src/cucumber_plant.cpp.o
 
 src/cucumber_plant.i: src/cucumber_plant.cpp.i
@@ -279,7 +279,7 @@ src/cucumber_plant.i: src/cucumber_plant.cpp.i
 
 # target to preprocess a source file
 src/cucumber_plant.cpp.i:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.i
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/cucumber_plant.cpp.i
 .PHONY : src/cucumber_plant.cpp.i
 
 src/cucumber_plant.s: src/cucumber_plant.cpp.s
@@ -288,7 +288,7 @@ src/cucumber_plant.s: src/cucumber_plant.cpp.s
 
 # target to generate assembly for a file
 src/cucumber_plant.cpp.s:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.s
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/cucumber_plant.cpp.s
 .PHONY : src/cucumber_plant.cpp.s
 
 src/greenhouse.o: src/greenhouse.cpp.o
@@ -297,7 +297,7 @@ src/greenhouse.o: src/greenhouse.cpp.o
 
 # target to build an object file
 src/greenhouse.cpp.o:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/greenhouse.cpp.o
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/greenhouse.cpp.o
 .PHONY : src/greenhouse.cpp.o
 
 src/greenhouse.i: src/greenhouse.cpp.i
@@ -306,7 +306,7 @@ src/greenhouse.i: src/greenhouse.cpp.i
 
 # target to preprocess a source file
 src/greenhouse.cpp.i:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/greenhouse.cpp.i
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/greenhouse.cpp.i
 .PHONY : src/greenhouse.cpp.i
 
 src/greenhouse.s: src/greenhouse.cpp.s
@@ -315,35 +315,62 @@ src/greenhouse.s: src/greenhouse.cpp.s
 
 # target to generate assembly for a file
 src/greenhouse.cpp.s:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/greenhouse.cpp.s
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/greenhouse.cpp.s
 .PHONY : src/greenhouse.cpp.s
 
-src/tomato_example.o: src/tomato_example.cpp.o
+src/mainprogram.o: src/mainprogram.cpp.o
 
-.PHONY : src/tomato_example.o
+.PHONY : src/mainprogram.o
 
 # target to build an object file
-src/tomato_example.cpp.o:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_example.cpp.o
-.PHONY : src/tomato_example.cpp.o
+src/mainprogram.cpp.o:
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/mainprogram.cpp.o
+.PHONY : src/mainprogram.cpp.o
 
-src/tomato_example.i: src/tomato_example.cpp.i
+src/mainprogram.i: src/mainprogram.cpp.i
 
-.PHONY : src/tomato_example.i
+.PHONY : src/mainprogram.i
 
 # target to preprocess a source file
-src/tomato_example.cpp.i:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_example.cpp.i
-.PHONY : src/tomato_example.cpp.i
+src/mainprogram.cpp.i:
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/mainprogram.cpp.i
+.PHONY : src/mainprogram.cpp.i
 
-src/tomato_example.s: src/tomato_example.cpp.s
+src/mainprogram.s: src/mainprogram.cpp.s
 
-.PHONY : src/tomato_example.s
+.PHONY : src/mainprogram.s
 
 # target to generate assembly for a file
-src/tomato_example.cpp.s:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_example.cpp.s
-.PHONY : src/tomato_example.cpp.s
+src/mainprogram.cpp.s:
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/mainprogram.cpp.s
+.PHONY : src/mainprogram.cpp.s
+
+src/textures.o: src/textures.cpp.o
+
+.PHONY : src/textures.o
+
+# target to build an object file
+src/textures.cpp.o:
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/textures.cpp.o
+.PHONY : src/textures.cpp.o
+
+src/textures.i: src/textures.cpp.i
+
+.PHONY : src/textures.i
+
+# target to preprocess a source file
+src/textures.cpp.i:
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/textures.cpp.i
+.PHONY : src/textures.cpp.i
+
+src/textures.s: src/textures.cpp.s
+
+.PHONY : src/textures.s
+
+# target to generate assembly for a file
+src/textures.cpp.s:
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/textures.cpp.s
+.PHONY : src/textures.cpp.s
 
 src/tomato_plant.o: src/tomato_plant.cpp.o
 
@@ -351,7 +378,7 @@ src/tomato_plant.o: src/tomato_plant.cpp.o
 
 # target to build an object file
 src/tomato_plant.cpp.o:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.o
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/tomato_plant.cpp.o
 .PHONY : src/tomato_plant.cpp.o
 
 src/tomato_plant.i: src/tomato_plant.cpp.i
@@ -360,7 +387,7 @@ src/tomato_plant.i: src/tomato_plant.cpp.i
 
 # target to preprocess a source file
 src/tomato_plant.cpp.i:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.i
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/tomato_plant.cpp.i
 .PHONY : src/tomato_plant.cpp.i
 
 src/tomato_plant.s: src/tomato_plant.cpp.s
@@ -369,7 +396,7 @@ src/tomato_plant.s: src/tomato_plant.cpp.s
 
 # target to generate assembly for a file
 src/tomato_plant.cpp.s:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.s
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/tomato_plant.cpp.s
 .PHONY : src/tomato_plant.cpp.s
 
 src/watertank.o: src/watertank.cpp.o
@@ -378,7 +405,7 @@ src/watertank.o: src/watertank.cpp.o
 
 # target to build an object file
 src/watertank.cpp.o:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/watertank.cpp.o
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/watertank.cpp.o
 .PHONY : src/watertank.cpp.o
 
 src/watertank.i: src/watertank.cpp.i
@@ -387,7 +414,7 @@ src/watertank.i: src/watertank.cpp.i
 
 # target to preprocess a source file
 src/watertank.cpp.i:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/watertank.cpp.i
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/watertank.cpp.i
 .PHONY : src/watertank.cpp.i
 
 src/watertank.s: src/watertank.cpp.s
@@ -396,7 +423,7 @@ src/watertank.s: src/watertank.cpp.s
 
 # target to generate assembly for a file
 src/watertank.cpp.s:
-	$(MAKE) -f CMakeFiles/tomato_example.dir/build.make CMakeFiles/tomato_example.dir/src/watertank.cpp.s
+	$(MAKE) -f CMakeFiles/mainprogram.dir/build.make CMakeFiles/mainprogram.dir/src/watertank.cpp.s
 .PHONY : src/watertank.cpp.s
 
 # Help Target
@@ -412,21 +439,24 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... ImGui-SFML"
+	@echo "... mainprogram"
 	@echo "... sfml-audio"
 	@echo "... sfml-graphics"
 	@echo "... sfml-network"
 	@echo "... sfml-system"
 	@echo "... sfml-window"
-	@echo "... tomato_example"
 	@echo "... src/cucumber_plant.o"
 	@echo "... src/cucumber_plant.i"
 	@echo "... src/cucumber_plant.s"
 	@echo "... src/greenhouse.o"
 	@echo "... src/greenhouse.i"
 	@echo "... src/greenhouse.s"
-	@echo "... src/tomato_example.o"
-	@echo "... src/tomato_example.i"
-	@echo "... src/tomato_example.s"
+	@echo "... src/mainprogram.o"
+	@echo "... src/mainprogram.i"
+	@echo "... src/mainprogram.s"
+	@echo "... src/textures.o"
+	@echo "... src/textures.i"
+	@echo "... src/textures.s"
 	@echo "... src/tomato_plant.o"
 	@echo "... src/tomato_plant.i"
 	@echo "... src/tomato_plant.s"

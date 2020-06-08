@@ -1,28 +1,33 @@
 [
 {
   "directory": "/Users/madsrossen/Documents/GitHub/GrowPlant/build",
-  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/tomato_example.dir/src/tomato_example.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/tomato_example.cpp",
-  "file": "/Users/madsrossen/Documents/GitHub/GrowPlant/src/tomato_example.cpp"
+  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml -I/Users/madsrossen/Documents/GitHub/GrowPlant/pictures  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/mainprogram.dir/src/mainprogram.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/mainprogram.cpp",
+  "file": "/Users/madsrossen/Documents/GitHub/GrowPlant/src/mainprogram.cpp"
 },
 {
   "directory": "/Users/madsrossen/Documents/GitHub/GrowPlant/build",
-  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/tomato_example.dir/src/tomato_plant.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/tomato_plant.cpp",
+  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml -I/Users/madsrossen/Documents/GitHub/GrowPlant/pictures  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/mainprogram.dir/src/tomato_plant.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/tomato_plant.cpp",
   "file": "/Users/madsrossen/Documents/GitHub/GrowPlant/src/tomato_plant.cpp"
 },
 {
   "directory": "/Users/madsrossen/Documents/GitHub/GrowPlant/build",
-  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/tomato_example.dir/src/cucumber_plant.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/cucumber_plant.cpp",
+  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml -I/Users/madsrossen/Documents/GitHub/GrowPlant/pictures  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/mainprogram.dir/src/cucumber_plant.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/cucumber_plant.cpp",
   "file": "/Users/madsrossen/Documents/GitHub/GrowPlant/src/cucumber_plant.cpp"
 },
 {
   "directory": "/Users/madsrossen/Documents/GitHub/GrowPlant/build",
-  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/tomato_example.dir/src/watertank.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/watertank.cpp",
+  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml -I/Users/madsrossen/Documents/GitHub/GrowPlant/pictures  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/mainprogram.dir/src/watertank.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/watertank.cpp",
   "file": "/Users/madsrossen/Documents/GitHub/GrowPlant/src/watertank.cpp"
 },
 {
   "directory": "/Users/madsrossen/Documents/GitHub/GrowPlant/build",
-  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/tomato_example.dir/src/greenhouse.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/greenhouse.cpp",
+  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml -I/Users/madsrossen/Documents/GitHub/GrowPlant/pictures  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/mainprogram.dir/src/greenhouse.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/greenhouse.cpp",
   "file": "/Users/madsrossen/Documents/GitHub/GrowPlant/src/greenhouse.cpp"
+},
+{
+  "directory": "/Users/madsrossen/Documents/GitHub/GrowPlant/build",
+  "command": "/usr/bin/clang++  -DIMGUI_USER_CONFIG=\\\"imconfig-SFML.h\\\" -I/Users/madsrossen/Documents/GitHub/GrowPlant/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/SFML/include -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui -I/Users/madsrossen/Documents/GitHub/GrowPlant/libs/imgui-sfml -I/Users/madsrossen/Documents/GitHub/GrowPlant/pictures  -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk   -std=gnu++2a -o CMakeFiles/mainprogram.dir/src/textures.cpp.o -c /Users/madsrossen/Documents/GitHub/GrowPlant/src/textures.cpp",
+  "file": "/Users/madsrossen/Documents/GitHub/GrowPlant/src/textures.cpp"
 },
 {
   "directory": "/Users/madsrossen/Documents/GitHub/GrowPlant/build/libs/SFML/src/SFML/System",

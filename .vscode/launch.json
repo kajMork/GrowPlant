@@ -8,7 +8,7 @@
             "name": "simulator",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/tomato_example",
+            "program": "${workspaceFolder}/build/mainprogram",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
