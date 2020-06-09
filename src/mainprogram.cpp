@@ -88,7 +88,7 @@ int main(int argc, char const *argv[])
 
     // Set render window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tomato Simulator");
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(10);
     ImGui::SFML::Init(window);
 
     // Texture rendering and sprite setup

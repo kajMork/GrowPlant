@@ -1,14 +1,14 @@
-#include "../include/textures.h"
+#include "/Users/madsrossen/Documents/GitHub/GrowPlant/include/textures.h"
 void textures::loadTextures()
 {
     // Texture rendering
-    if(!greenhouseTex.loadFromFile("../pictures/Drivhus_2_v5.png")){
+    if(!greenhouseTex.loadFromFile("/Users/madsrossen/Documents/GitHub/GrowPlant/pictures/Drivhus_2_v5.png")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     greenhouseTex.setSmooth(true);
 
     
-    if(!stalk.loadFromFile("../pictures/stalk.jpg")){
+    if(!stalk.loadFromFile("/Users/madsrossen/Documents/GitHub/GrowPlant/pictures/stalk.jpg")){
         std::cout << "Couldn't load textures, check directory." << std::endl;
     }
     stalk.setSmooth(true);
